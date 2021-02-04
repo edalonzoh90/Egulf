@@ -1,0 +1,161 @@
+﻿@using System.Web.UI.WebControls;
+@{var listSubcategory = new List<ListItem>
+    {
+          new ListItem { Value = "1", Text = "Remolcador convencional" },
+          new ListItem { Value = "2", Text = "Remolcador de impulsión de azimut stern" },
+          new ListItem { Value = "3", Text = "Remolcador de tractor" },
+          new ListItem { Value = "4", Text = "Remolcador de manejo de ancla" },
+    };
+}
+<div class="card-box mt-3">
+    <form action="#">
+
+        <div class="row">
+            <div class="form-group col-md-12 col col-xs-12">
+                @Html.DropDownList("projects", new SelectList(ViewBag.LstProjects, "Value", "Text"), "Proyectos",
+                    new { @class = "form-control form-control-sm" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12 col col-xs-12">
+                @Html.DropDownList("suitability", new SelectList(ViewBag.LstSuitability, "Value", "Text"), "Adecuabilidad",
+                    new { @class = "form-control form-control-sm" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group">
+                    <div class="checkbox checkbox-primary pt-2">
+                        <input type="checkbox" id="pemex" data-error="Before you wreck yourself" required>
+                        <label for="pemex"><b>Checklist de PEMEX</b></label>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group">
+                    @Html.DropDownList("region", new SelectList(ViewBag.LstRegion, "Value", "Text"), "Área operativa",
+                new { @class = "form-control form-control-sm" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-12">
+                    <div class="input-daterange input-group input-sm " id="date-range">
+                        <input type="date" id="fStart" class="form-control text-form-contro-sm" name="start" placeholder="Inicio" />
+                        <span class="input-group-addon bg-primary b-0 text-white">to</span>
+                        <input type="date" id="fEnd" class="form-control text-form-contro-sm" name="end" placeholder="Fin" />
+                    </div>
+                </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-12">
+                <div class="input-group input-sm">
+                    <span class="bg-primary input-group-addon b-0 text-white">
+                        <i class="fa fa-dollar"></i>
+                    </span>
+                    <input type="text" class="form-control input-sm text-form-contro-sm" id="costs" placeholder="Presupuesto" />                
+                </div>
+            </div>
+        </div>
+        <div class="text-right">
+            <h6 class=""><span style="cursor:pointer;" data-toggle="collapse" data-target="#detail_match">Búsqueda avanzada <i class="ion-arrow-down-b"></i></span> </h6>
+           <hr />
+        </div>
+       
+        <div id="detail_match" class="collapse">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="sposition"><b>S. de posicionamiento</b></label><br />
+                    @*<div class="checkbox checkbox-primary form-check-inline">
+                        <input type="checkbox" id="sposition" data-error="Before you wreck yourself" required>
+                        <label for="sposition"><b>S. de posicionamiento</b></label>
+                        <div class="help-block with-errors"></div>
+                    </div>*@
+                    <div class="radio radio-primary form-check-inline">
+                        <input type="radio" name="postionSystem" id="dp1" value="1" required>
+                        <label for="dp1">DP1</label>
+                    </div>
+
+                    <div class="radio radio-primary form-check-inline">
+                        <input type="radio" name="postionSystem" id="dp2" value="2" required>
+                        <label for="dp2">DP2</label>
+                    </div>
+                    <div class="radio radio-primary form-check-inline">
+                        <input type="radio" name="postionSystem" id="dp3" value="3" required>
+                        <label for="dp3">DP3</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12 col col-xs-12">
+                    @Html.DropDownList("subtype", new SelectList(listSubcategory, "Value", "Text"), "Subcategorías",
+                    new { @class = "form-control form-control-sm invisible2" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="form-group">
+                        <input class="form-control input-sm text-form-contro-sm" type="text" id="pasajeros" placeholder="No. Pasajeros" data-error="Before you wreck yourself" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="form-group">
+                        <input class="form-control input-sm text-form-contro-sm" type="text" id="carga" placeholder="Capacidad carga" data-error="Before you wreck yourself" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="form-group">
+                        <input class="form-control input-sm text-form-contro-sm invisible2" type="text" id="b_pull" placeholder="Bollard Pull" data-error="Before you wreck yourself" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="form-group">
+                        <input class="form-control input-sm text-form-contro-sm invisible2" type="text" id="b_pull_ahead" placeholder="Bollard Pull Ahead" data-error="Before you wreck yourself" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="form-group">
+                        <input class="form-control input-sm text-form-contro-sm invisible2" type="text" id="b_pull_astern" placeholder="Bollard Pull Astern" data-error="Before you wreck yourself" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            @*<div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="form-group">
+                        <input class="form-control input-sm text-form-contro-sm" type="text" id="tank" placeholder="Capacidad de tanque" data-error="Before you wreck yourself" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="form-group">
+                        <input class="form-control input-sm text-form-contro-sm" type="text" id="discharge" placeholder="Capacidad de bombeo" data-error="Before you wreck yourself" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>*@
+            
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="form-group">
+                    <input type="button" value="Buscar" id="btnMatch" class="btn btn-primary btn-sm pull-right"/>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+

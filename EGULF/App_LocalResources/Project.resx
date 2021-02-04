@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CreateProjectSubtitle" xml:space="preserve">
+    <value>Ingrese los datos solicitados paso por paso para completar el registro del proyecto</value>
+  </data>
+  <data name="CreateProjectTitle" xml:space="preserve">
+    <value>Crear Proyecto</value>
+  </data>
+  <data name="LabelBudget" xml:space="preserve">
+    <value>Presupuesto:</value>
+  </data>
+  <data name="LabelCementTankCapacity" xml:space="preserve">
+    <value>Capacidad de Tanque de Silos (carga a granel)</value>
+  </data>
+  <data name="LabelCreateStep1" xml:space="preserve">
+    <value>Información General del Proyecto</value>
+  </data>
+  <data name="LabelCreateStep2" xml:space="preserve">
+    <value>Requerimientos Específicos del Proyecto (Opcional)</value>
+  </data>
+  <data name="LabelCreateStep3" xml:space="preserve">
+    <value>Compatibilidad Con Barco(s)</value>
+  </data>
+  <data name="LabelDurationType" xml:space="preserve">
+    <value>Tipo Duración:</value>
+  </data>
+  <data name="LabelDynamicPositioningSystem" xml:space="preserve">
+    <value>Sistema de Posicionamiento Dinámico:</value>
+  </data>
+  <data name="LabelEstimatedDuration" xml:space="preserve">
+    <value>Duración Estimada (Días):</value>
+  </data>
+  <data name="LabelExtension" xml:space="preserve">
+    <value>Posibilidad de Extensión:</value>
+  </data>
+  <data name="LabelExtensionType" xml:space="preserve">
+    <value>Tipo Extensión:</value>
+  </data>
+  <data name="LabelFreeDeckArea" xml:space="preserve">
+    <value>Área Libre de Cubierta:</value>
+  </data>
+  <data name="LabelMudCapacity" xml:space="preserve">
+    <value>Capacidad de Tanque de Lodo:</value>
+  </data>
+  <data name="LabelOilRecoveryCapacity" xml:space="preserve">
+    <value>Capacidad de Recuperación de Hidrocarburos:</value>
+  </data>
+  <data name="LabelProjectType" xml:space="preserve">
+    <value>Categoría del Proyecto:</value>
+  </data>
+  <data name="LabelRegion" xml:space="preserve">
+    <value>Área de Operación:</value>
+  </data>
+  <data name="LabelSelectOne" xml:space="preserve">
+    <value>Seleccione:</value>
+  </data>
+  <data name="LabelStartDate" xml:space="preserve">
+    <value>Fecha Inicio:</value>
+  </data>
+  <data name="LabelTotalExtension" xml:space="preserve">
+    <value>Días Extensión:</value>
+  </data>
+  <data name="OptionBestOffer" xml:space="preserve">
+    <value>Mejor Oferta</value>
+  </data>
+  <data name="OptionDays" xml:space="preserve">
+    <value>Días:</value>
+  </data>
+  <data name="OptionHours" xml:space="preserve">
+    <value>Horas</value>
+  </data>
+  <data name="OptionLumbsum" xml:space="preserve">
+    <value>Total Global</value>
+  </data>
+  <data name="OptionMaxDailyRate" xml:space="preserve">
+    <value>Tarifa Diaria Máxima</value>
+  </data>
+  <data name="OptionNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="OptionYes" xml:space="preserve">
+    <value>Sí</value>
+  </data>
+  <data name="PagerTitle" xml:space="preserve">
+    <value>Proyectos</value>
+  </data>
+  <data name="TableHeaderActions" xml:space="preserve">
+    <value>Acción</value>
+  </data>
+  <data name="TableHeaderCategory" xml:space="preserve">
+    <value>Categoría</value>
+  </data>
+  <data name="TableHeaderDuration" xml:space="preserve">
+    <value>Duración</value>
+  </data>
+  <data name="TableHeaderId" xml:space="preserve">
+    <value>Folio</value>
+  </data>
+  <data name="TableHeaderStartDate" xml:space="preserve">
+    <value>Fecha Inicio</value>
+  </data>
+  <data name="TooltipDynamicPositioningSystem" xml:space="preserve">
+    <value>El sistema de posicionamiento dinámico es un sistema controlado por computadora para mantener la posición y grado de un barco de manera automática</value>
+  </data>
+  <data name="TooltipEstimatedDuration" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TooltipProjectType" xml:space="preserve">
+    <value>Categoría del proyecto. Escoger el alcance principal del proyecto</value>
+  </data>
+  <data name="TooltipsCubicMeters" xml:space="preserve">
+    <value>Medida en métros cúbicos</value>
+  </data>
+  <data name="TooltipSquareMeters" xml:space="preserve">
+    <value>Medida en métros cuadrados</value>
+  </data>
+  <data name="TooltipStartDate" xml:space="preserve">
+    <value>Fecha estimada de inicio del proyecto</value>
+  </data>
+  <data name="PlaceholderM2" xml:space="preserve">
+    <value>(M2)</value>
+  </data>
+  <data name="PlaceholderM3" xml:space="preserve">
+    <value>(M3)</value>
+  </data>
+  <data name="OptionDP1" xml:space="preserve">
+    <value>DP1</value>
+  </data>
+  <data name="OptionDP2" xml:space="preserve">
+    <value>DP2</value>
+  </data>
+  <data name="OptionDP3" xml:space="preserve">
+    <value>DP3</value>
+  </data>
+  <data name="OptionNoRequired" xml:space="preserve">
+    <value>No Requerido</value>
+  </data>
+  <data name="OptionRequired" xml:space="preserve">
+    <value>Requerido</value>
+  </data>
+  <data name="OptionBunkering" xml:space="preserve">
+    <value>Abastecimiento de Combustible</value>
+  </data>
+  <data name="OptionMaterialTransportation" xml:space="preserve">
+    <value>Transporte de Material</value>
+  </data>
+  <data name="OptionPersonnelTransportation" xml:space="preserve">
+    <value>Transporte de Personal o Flotel</value>
+  </data>
+  <data name="OptionTowage" xml:space="preserve">
+    <value>Remolque</value>
+  </data>
+  <data name="ProjectCategoryTitle" xml:space="preserve">
+    <value>Categoría del Proyecto</value>
+  </data>
+  <data name="LabelDischargeRate" xml:space="preserve">
+    <value>Velocidad de Descarga:</value>
+  </data>
+  <data name="LabelTankCapacity" xml:space="preserve">
+    <value>Capacidad del Tanque:</value>
+  </data>
+  <data name="PlaceholderM3Gallons" xml:space="preserve">
+    <value>(M3) o Galones</value>
+  </data>
+  <data name="PlaceholderM3H" xml:space="preserve">
+    <value>(M3/h)</value>
+  </data>
+  <data name="TooltipM3Gallons" xml:space="preserve">
+    <value>Número en métros cúbicos o en galones</value>
+  </data>
+  <data name="TooltipM3H" xml:space="preserve">
+    <value>Número en métros cúbicos por hora</value>
+  </data>
+  <data name="LabelBollardPull" xml:space="preserve">
+    <value>Tiro a Punto Fijo :</value>
+  </data>
+  <data name="LabelBollardPullAhead" xml:space="preserve">
+    <value>Tiro a Punto Fijo (proa):</value>
+  </data>
+  <data name="LabelBollardPullAstern" xml:space="preserve">
+    <value>Tiro a Punto Fijo (popa):</value>
+  </data>
+  <data name="LabelSubtype" xml:space="preserve">
+    <value>Subtipo:</value>
+  </data>
+  <data name="OptionConventionalTug" xml:space="preserve">
+    <value>Tirón Convencional</value>
+  </data>
+  <data name="OptionSternDriveTug" xml:space="preserve">
+    <value>Remolcador de Popa</value>
+  </data>
+  <data name="PlaceholderMT" xml:space="preserve">
+    <value>(T/m)</value>
+  </data>
+  <data name="TooltipBollarPull" xml:space="preserve">
+    <value>Tirón a punto fijo es la medida convencional de poder de tirón (remolcamiento) de una embarcación</value>
+  </data>
+  <data name="LabelAmenities" xml:space="preserve">
+    <value>Instalaciones:</value>
+  </data>
+  <data name="LabelCabinSpecifications" xml:space="preserve">
+    <value>Especificaciones de Cabina(s):</value>
+  </data>
+  <data name="LabelCargoCapacity" xml:space="preserve">
+    <value>Capacidad de Carga:</value>
+  </data>
+  <data name="LabelDoubleBerth" xml:space="preserve">
+    <value>Doble Litera:</value>
+  </data>
+  <data name="LabelFourBerth" xml:space="preserve">
+    <value>Cuatro Literas:</value>
+  </data>
+  <data name="LabelNumberPassengers" xml:space="preserve">
+    <value>Número de Pasajeros:</value>
+  </data>
+  <data name="LabelSingleBerth" xml:space="preserve">
+    <value>Litera Individual:</value>
+  </data>
+  <data name="OptionAirConditioning" xml:space="preserve">
+    <value>Cabinas con A/C</value>
+  </data>
+  <data name="OptionConferenceRoom" xml:space="preserve">
+    <value>Sala de Juntas</value>
+  </data>
+  <data name="OptionControlRoom" xml:space="preserve">
+    <value>Sala de Control</value>
+  </data>
+  <data name="OptionGymnasium" xml:space="preserve">
+    <value>Gimnasio</value>
+  </data>
+  <data name="OptionHospital" xml:space="preserve">
+    <value>Hospital</value>
+  </data>
+  <data name="OptionMessRoom" xml:space="preserve">
+    <value>Comedor</value>
+  </data>
+  <data name="OptionOffices" xml:space="preserve">
+    <value>Oficinas</value>
+  </data>
+  <data name="OptionSwimingPool" xml:space="preserve">
+    <value>Piscina</value>
+  </data>
+  <data name="PlaceholderTonnes" xml:space="preserve">
+    <value>(T)</value>
+  </data>
+  <data name="TooltipAmenities" xml:space="preserve">
+    <value>Seleccione las comodidades disponibles para los pasajeros abordo de la embarcación</value>
+  </data>
+  <data name="TooltipTonnes" xml:space="preserve">
+    <value>Medida en Toneladas</value>
+  </data>
+  <data name="LabelMaxRateBudget" xml:space="preserve">
+    <value>Tarifa Máxima Deseada:</value>
+  </data>
+  <data name="MsgWrongStartDate" xml:space="preserve">
+    <value>La fecha de inicio no debe ser menor a la fecha actual (Nuevo proyecto) o a la fecha inicial registrada (Edición de proyecto)</value>
+  </data>
+  <data name="EmptyMessage" xml:space="preserve">
+    <value>No tienes empresa asignada</value>
+  </data>
+  <data name="EmptySubject" xml:space="preserve">
+    <value>Aviso</value>
+  </data>
+  <data name="TooltipNumberPassengersPersonelTransportation" xml:space="preserve">
+    <value>Capacidad total de personal a mover, puede ser superior a la capacidad de la embarcación</value>
+  </data>
+  <data name="LabelCheckPemex" xml:space="preserve">
+    <value>Check-List de PEMEX:</value>
+  </data>
+  <data name="TooltipCheckPemex" xml:space="preserve">
+    <value>El check-list de PEMEX es una inspección fisico-documental que se le realiza a cualquier embarcación para garantizar que cumpla con los parametros minimos de seguridad y así permitirle el acceso al area de plataformas</value>
+  </data>
+  <data name="LabelDeckStrenght" xml:space="preserve">
+    <value>Resistencia en Cubierta:</value>
+  </data>
+  <data name="PlaceholderTM2" xml:space="preserve">
+    <value>(T/m2)</value>
+  </data>
+  <data name="TooltipTM2" xml:space="preserve">
+    <value>Toneladas en metros cuadrados</value>
+  </data>
+  <data name="DeleteProjectInstructions" xml:space="preserve">
+    <value>Por favor ingrese el motivo o razón por el cual desea cancelar el proyecto (requerido):</value>
+  </data>
+  <data name="DeleteProjectTitle" xml:space="preserve">
+    <value>Cancelar Proyecto</value>
+  </data>
+  <data name="DeleteProjectTextConfirm" xml:space="preserve">
+    <value>El proyecto se cancelará y desaparecerá de su lista de proyectos (esta acción no puede ser revertida), ¿Desea continuar?</value>
+  </data>
+  <data name="TableHeaderStatus" xml:space="preserve">
+    <value>Estatus</value>
+  </data>
+</root>

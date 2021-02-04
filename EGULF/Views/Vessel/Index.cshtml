@@ -1,0 +1,45 @@
+﻿@using localresource = EGULF.App_LocalResources.Vessels;
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">@Html.Raw(localresource.Vessel)</h4>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<div class="row full-height"></div>
+<div class="col-sm-12">
+    <div class="card-box">
+        <div class="row grid">
+            <div class="col-md-12">
+                <table id="tblVessels" class="table table-striped table-bordered" cellspacing="0" width="100%" >
+                    <thead>
+                        <tr>
+                            <th>@Html.Raw(localresource.Status)</th>
+                            <th>@Html.Raw(localresource.Vessel)</th>
+                            <th>@Html.Raw(localresource.VesselType)</th>
+                            <th>@Html.Raw(localresource.Actions)</th>
+                        </tr>
+                    </thead>
+                    <tbody style="font-size: 14px;"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/Views/Vessel.js"></script>
+<script>
+    $(document).ready(function () {
+        Base.call(Vessel);
+        Vessel.BlockTarget($(".grid"));
+        Vessel.permissions.canCreate = true;
+        Vessel.permissions.canEdit = true;
+        Vessel.url.create = "/vessel/create";
+        Vessel.LoadTable();
+    });
+</script>

@@ -1,0 +1,97 @@
+﻿@using localResource = EGULF.App_LocalResources.Company
+@model EGullf.Services.Models.Management.CompanyModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title"> @Html.Raw(localResource.title_edit) </h4>
+            
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<div class="row full-height"></div>
+<div class="row justify-content-md-center">
+    <div class="card-box col-xs-12 col-md-6 col-lg-6">
+        <h4 class="m-t-0 m-b-20 header-title"><b>@Html.Raw(localResource.txt_title_edit)</b></h4>
+        <div class="row">
+            <div class="col-md-12">
+                @using (Html.BeginForm("Edit", "Company", FormMethod.Post, new { @id = "companyEdit", @role = "form" }))
+            {
+                    @Html.HiddenFor(m => m.CompanyId)
+
+                    <div class="form-group">
+                        <label for="txtName" class="control-label">@Html.Raw(localResource.txt_name)</label>
+                        @Html.EditorFor(m => m.CompanyName, new
+               {
+                   htmlAttributes = new
+                   {
+                       @class = "form-control",
+                       @id = "txtName",
+                       @placeholder = @Html.Raw(localResource.txt_name),
+                       @data_remote = @Url.Content("~/company/valid"),
+                       @data_remote_error = "La compañía ya se encuentra registrada",
+                       @name = "txtName",
+                       @required = ""
+                   }
+               })
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtRFC" class="control-label">@Html.Raw(localResource.txt_rfc)</label>
+                        @Html.EditorFor(m => m.RFC, new { htmlAttributes = new { @class = "form-control", @id = "txtRFC", @placeholder = @Html.Raw(localResource.txt_rfc), @required = "", @data_minlength = "10" } })
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtAddress" class="control-label">@Html.Raw(localResource.txt_address)</label>
+                        @Html.EditorFor(m => m.Address, new { htmlAttributes = new { @class = "form-control", @id = "txtAddress", @placeholder = @Html.Raw(localResource.txt_address), @required = "" } })
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtPhone" class="control-label">@Html.Raw(localResource.txt_phone)</label>
+                        @Html.EditorFor(m => m.PhoneNumber, new
+               {
+                   htmlAttributes = new
+                   {
+                       @type = "tel",
+                       @pattern = "[0-9]{3}[0-9]{3}[0-9]{4}",
+                       @data_pattern_error = "Utiliza el formato con lada, deben ser 10 dígitos",
+                       @class = "form-control",
+                       @id = "txtPhone",
+                       @placeholder = @Html.Raw(localResource.txt_phone),
+                       @required = ""
+                   }
+               })
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtEmail" class="control-label">@Html.Raw(localResource.txt_email)</label>
+                        @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @type = "email", @class = "form-control", @id = "txtEmail", @placeholder = @Html.Raw(localResource.txt_email), @required = "" } })
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" id="btnEdit" class="btn btn-primary">@Html.Raw(localResource.btn_save)</button>
+                        <button type="button" id="btnCancelEdit" class="btn btn-danger">@Html.Raw(localResource.btn_cancel)</button>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="~/Scripts/Views/Company.js"></script>
+<script>
+    $(document).ready(function () {
+        Company.resources.txt_company_updated = '@Html.Raw(localResource.txt_company_updated)';
+        Company.resources.txt_company_error_updated = '@Html.Raw(localResource.txt_company_error_updated)';
+        Company.Init();
+    });
+
+</script>
+
+

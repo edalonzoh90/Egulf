@@ -1,0 +1,98 @@
+﻿@using globalResource = EGULF.App_LocalResources.Main
+@using localResource = EGULF.App_LocalResources.Vessels
+@model EGULF.Models.VesselViewModel
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<link href="~/Content/Views/Vessels.css" rel="stylesheet" />
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">
+                @Html.Raw(localResource.RegisterVessel)
+            </h4>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<div class="row justify-content-md-center">
+    <div class="col-xl-10 col-lg-12 col-md-12 col-xs-12">
+        <div class="card-box">
+            <div id="wizard-vertical" role="application" class="wizard clearfix vertical">
+                <div class="steps clearfix">
+                    <ul id="wizard-vertical-ul" role="tablist">
+                        <li id="wizard-vertical-li-0" role="tab" class="first current" aria-disabled="false" aria-selected="true">
+                            <a id="wizard-vertical-t-0" href="javascript:Vessel.ChangeWizard(0)" aria-controls="wizard-vertical-p-0">
+                                <span class="number">1.</span> @Html.Raw(localResource.GeneralInfo)
+                            </a>
+                        </li>
+                        <li id="wizard-vertical-li-1" role="tab" class="disabled" aria-disabled="true">
+                            <a id="wizard-vertical-t-1" href="javascript:Vessel.ChangeWizard(1)" aria-controls="wizard-vertical-p-1">
+                                <span class="number">2.</span> @Html.Raw(localResource.SpecificInfo)
+                            </a>
+                        </li>
+                        <li id="wizard-vertical-li-2" role="tab" class="disabled" aria-disabled="true">
+                            <a id="wizard-vertical-t-2" href="javascript:Vessel.ChangeWizard(2)" aria-controls="wizard-vertical-p-2">
+                                <span class="number">3.</span> @Html.Raw(localResource.ExtraInfo)
+                            </a>
+                        </li>
+                        <li id="wizard-vertical-li-3" role="tab" class="disabled last" aria-disabled="true">
+                            <a id="wizard-vertical-t-3" href="javascript:Vessel.ChangeWizard(3)" aria-controls="wizard-vertical-p-3">
+                                <span class="number">4.</span> @Html.Raw(localResource.DailyRate)
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content clearfix">
+                    <section id="wizard-vertical-p-0" role="tabpanel" aria-labelledby="wizard-vertical-h-0" class="current" aria-hidden="false">
+                        @Html.Partial("Partial1", Model.Vessel)
+                    </section>
+                    <section id="wizard-vertical-p-1" role="tabpanel" aria-labelledby="wizard-vertical-h-1" aria-hidden="true" style="display: none;">
+                        @Html.Partial("Partial2", Model.VesselSpecificInfo)
+                    </section>
+                    <section id="wizard-vertical-p-2" role="tabpanel" aria-labelledby="wizard-vertical-h-2" aria-hidden="true" style="display: none;">
+                        @Html.Partial("Partial3", Model.SpecificInfo)
+                    </section>
+                    <section id="wizard-vertical-p-3" role="tabpanel" aria-labelledby="wizard-vertical-h-3" aria-hidden="true" style="display: none;">
+                        @Html.Partial("Partial4", Model.VesselCost)
+                    </section>
+                </div>
+                <div class="actions clearfix">
+                    <ul role="menu" aria-label="Pagination">
+                        <li id="btnPrev" class="btn-pagination disabled" aria-disabled="true">
+                            <a href="javascript:Vessel.ChangeWizard('PREV')" role="menuitem">@Html.Raw(globalResource.Previous)</a></li>
+                        <li id="btnNext" class="btn-pagination" aria-hidden="false" aria-disabled="false">
+                            <a href="javascript:Vessel.ChangeWizard('NEXT')" role="menuitem">@Html.Raw(globalResource.Next)</a></li>
+                        <li id="btnFinish" class="btn-pagination" aria-hidden="true" style="display: none;">
+                            <a href="javascript:Vessel.ChangeWizard('END')" role="menuitem" >@Html.Raw(globalResource.Finish)</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/Views/Vessel.js"></script>
+<script>
+    $(document).ready(function () {
+        Base.call(Vessel);
+        Vessel.vars.tags= {
+            OK: '@Html.Raw(globalResource.OK)',
+            Saved: '@Html.Raw(globalResource.Saved)',
+            SomethingWrong: '@Html.Raw(globalResource.SomethingWrong)',
+            Warning: '@Html.Raw(globalResource.Warning)',
+            ErrorForm: '@Html.Raw(globalResource.ErrorForm)',
+            BadExtension: '@Html.Raw(localResource.BadExtension)',
+        },
+
+        Vessel.vars.model = @Html.Raw(Json.Encode(Model.Vessel));
+        Vessel.vars.specificInfo = @Html.Raw(Json.Encode(Model.VesselSpecificInfo));
+        Vessel.vars.extraInfo = @Html.Raw(Json.Encode(Model.SpecificInfo));
+        Vessel.vars.cost = @Html.Raw(Json.Encode(Model.VesselCost));
+        Vessel.InitCreate();
+        if (Vessel.vars.model.VesselId != null) {
+            Vessel.InitEdit();
+        }
+    });
+</script>

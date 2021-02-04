@@ -1,0 +1,58 @@
+﻿@using localResource = EGULF.App_LocalResources.Company
+@using EGullf.Services.Models.Management;
+@{
+    ViewBag.Title = "Invitate";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">@Html.Raw(localResource.txt_invitation_title) </h4>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<div class="row full-height"></div>
+<div class="col-sm-12">
+    <div class="card-box">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="input-group mb-3 class=" tags-default"">
+                    <input type="text" data-role="tagsinput" id="txtInvite" class="form-control" placeholder="@Html.Raw(localResource.txt_ph_invitate)" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary btn-primary" id="btn_invite" type="button">@Html.Raw(localResource.btn_invite)</button>
+                    </div>
+                </div>
+                <table id="dtInvitations" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>@Html.Raw(localResource.txt_col_email)</th>
+                            <th>@Html.Raw(localResource.txt_col_name)</th>
+                            <th>@Html.Raw(localResource.txt_col_date)</th>
+                            <th>@Html.Raw(localResource.txt_col_status)</th>
+                        </tr>
+                    </thead>
+                    <tbody style="font-size: 14px;"></tbody>
+                </table>
+                <div class="form-group">
+                    @*<a href="/company/index" class="btn btn-secondary">@Html.Raw(localResource.btn_cancel)</a>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Views/Company.js"></script>
+<script>
+    $(document).ready(function () {
+        Company.resources.txt_mje_cancel_save = '@Html.Raw(localResource.txt_mje_cancel_save)';
+        Company.resources.txt_aviso = '@Html.Raw(localResource.txt_aviso)';
+        Company.resources.txt_correcto = '@Html.Raw(localResource.txt_correcto)';
+        Company.resources.txt_company_saved = '@Html.Raw(localResource.txt_company_saved)';
+        Company.resources.txt_company_error_saved = '@Html.Raw(localResource.txt_company_error_saved)';
+        Company.resources.txt_company_error_form = '@Html.Raw(localResource.txt_company_error_form)';
+        Company.resources.txt_remove_invitation = '@Html.Raw(localResource.txt_remove_invitation)';
+        Company.resources.txt_remove_invitation_success = '@Html.Raw(localResource.txt_remove_invitation_success)';
+        Company.Init();
+    });
+</script>

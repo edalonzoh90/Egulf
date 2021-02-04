@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="sp_insUpdUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="sec">
+          <Parameter Name="UserId" Type="int" Mode="InOut" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_InsUpdUserRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="sec">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="RoleId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_SelAlertGroupByUserName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="sec">
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_SelResourceByUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="sec">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_SelRoleByUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="sec">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_SelUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="sec">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="Username" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_ValUserLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="sec">
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+          <Parameter Name="ErrorCode" Type="int" Mode="InOut" />
+          <Parameter Name="Error" Type="nvarchar(max)" Mode="InOut" />
+        </Function>
+        <Function Name="sp_valUsername" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="sec">
+          <Parameter Name="UserId" Type="int" Mode="InOut" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="ModelStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelContainer" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="sp_SelResourceByUserId" ReturnType="Collection(Model.sp_SelResourceByUserId_Result)">
+          <Parameter Name="UserId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_ValUserLogin" ReturnType="Collection(Model.sp_ValUserLogin_Result)">
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="ErrorCode" Mode="InOut" Type="Int32" />
+            <Parameter Name="Error" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_insUpdUser" ReturnType="Collection(Model.sp_insUpdUser_Result)">
+            <Parameter Name="UserId" Mode="InOut" Type="Int32" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_valUsername">
+            <Parameter Name="UserId" Mode="InOut" Type="Int32" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_SelAlertGroupByUserName" ReturnType="Collection(Model.sp_SelAlertGroupByUserName_Result)">
+          <Parameter Name="UserName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_SelUser" ReturnType="Collection(Model.sp_SelUser_Result)">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="Username" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_SelRoleByUser" ReturnType="Collection(Model.sp_SelRoleByUser_Result)">
+          <Parameter Name="UserId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_InsUpdUserRole" ReturnType="Collection(Model.sp_InsUpdUserRole_Result)">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="RoleId" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_SelResourceByUserId_Result">
+          <Property Type="Int32" Name="ResourceId" Nullable="true" />
+          <Property Type="String" Name="DisplayName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Icon" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Url" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Position" Nullable="true" />
+          <Property Type="Int32" Name="ParentResourceId" Nullable="true" />
+          <Property Type="Boolean" Name="Menu" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_ValUserLogin_Result">
+          <Property Type="Int32" Name="UserId" Nullable="true" />
+          <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="RoleId" Nullable="true" />
+          <Property Type="String" Name="RoleName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="CompanyId" Nullable="true" />
+          <Property Type="Int32" Name="PersonId" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_insUpdUser_Result">
+          <Property Type="Boolean" Name="IsError" Nullable="true" />
+          <Property Type="String" Name="Message" Nullable="true" MaxLength="350" />
+          <Property Type="Int32" Name="Line" Nullable="true" />
+          <Property Type="String" Name="Subject" Nullable="true" MaxLength="150" />
+        </ComplexType>
+        <ComplexType Name="sp_SelAlertGroupByUserName_Result">
+          <Property Type="String" Name="UserGroup" Nullable="true" MaxLength="31" />
+          <Property Type="String" Name="RolGroup" Nullable="true" MaxLength="31" />
+          <Property Type="String" Name="CompanyGroup" Nullable="true" MaxLength="31" />
+          <Property Type="String" Name="CompanyRolGroup" Nullable="true" MaxLength="62" />
+          <Property Type="String" Name="PersonGroup" Nullable="true" MaxLength="31" />
+        </ComplexType>
+        <ComplexType Name="sp_SelUser_Result">
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="Username" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_SelRoleByUser_Result">
+          <Property Type="Int32" Name="RoleId" Nullable="true" />
+          <Property Type="String" Name="RoleName" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_InsUpdUserRole_Result">
+          <Property Type="Boolean" Name="IsError" Nullable="true" />
+          <Property Type="String" Name="Message" Nullable="true" MaxLength="350" />
+          <Property Type="Int32" Name="Line" Nullable="true" />
+          <Property Type="String" Name="Subject" Nullable="true" MaxLength="150" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="Model" />
+        <Alias Key="Target" Value="Model.Store" />
+        <EntityContainerMapping CdmEntityContainer="ModelContainer" StorageEntityContainer="ModelStoreContainer">
+          <FunctionImportMapping FunctionImportName="sp_SelResourceByUserId" FunctionName="Model.Store.sp_SelResourceByUserId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.sp_SelResourceByUserId_Result">
+                <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="ParentResourceId" ColumnName="ParentResourceId" />
+                <ScalarProperty Name="Menu" ColumnName="Menu" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_ValUserLogin" FunctionName="Model.Store.sp_ValUserLogin">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.sp_ValUserLogin_Result">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_insUpdUser" FunctionName="Model.Store.sp_insUpdUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.sp_insUpdUser_Result">
+                <ScalarProperty Name="IsError" ColumnName="IsError" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Line" ColumnName="Line" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_valUsername" FunctionName="Model.Store.sp_valUsername" />
+          <FunctionImportMapping FunctionImportName="sp_SelAlertGroupByUserName" FunctionName="Model.Store.sp_SelAlertGroupByUserName">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.sp_SelAlertGroupByUserName_Result">
+                <ScalarProperty Name="UserGroup" ColumnName="UserGroup" />
+                <ScalarProperty Name="RolGroup" ColumnName="RolGroup" />
+                <ScalarProperty Name="CompanyGroup" ColumnName="CompanyGroup" />
+                <ScalarProperty Name="CompanyRolGroup" ColumnName="CompanyRolGroup" />
+                <ScalarProperty Name="PersonGroup" ColumnName="PersonGroup" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_SelUser" FunctionName="Model.Store.sp_SelUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.sp_SelUser_Result">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_SelRoleByUser" FunctionName="Model.Store.sp_SelRoleByUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.sp_SelRoleByUser_Result">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_InsUpdUserRole" FunctionName="Model.Store.sp_InsUpdUserRole">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.sp_InsUpdUserRole_Result">
+                <ScalarProperty Name="IsError" ColumnName="IsError" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Line" ColumnName="Line" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

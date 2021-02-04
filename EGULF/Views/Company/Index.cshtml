@@ -1,0 +1,150 @@
+﻿@using localResource = EGULF.App_LocalResources.Company
+@using MessageUILanguage = EGULF.App_LocalResources.MessageUI
+@using EGullf.Services.Models.Management;
+@model EGullf.Services.Models.Management.CompanyModel
+
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!-- Page-Title -->
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">@Html.Raw(localResource.title_index) </h4>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<div class="row full-height"></div>
+<div class="col-sm-12">
+    <div class="card-box">
+        <div class="row">
+            <div class="col-md-12">
+
+                @if (Model != null && Model.CompanyId == null)
+                {
+
+                    <a href="/company/create" class="btn btn-primary btn-rounded w-md waves-effect waves-light">@Html.Raw(localResource.btn_new)</a>
+                    <div class="d-flex justify-content-center position-fixed"><img src="@Url.Content("~/Content/Images/empty.svg")" alt="profile-image"></div>
+
+                }
+                else
+                {
+                    if ((bool)ViewData["isOwner"])
+                    {
+
+                        <a href="/company/invitate" class="btn btn-primary btn-rounded w-md waves-effect waves-light float-right mt-1 mr-3">@Html.Raw(localResource.btn_invite)</a>
+                            @*<div class="btn btn-primary btn-rounded w-md waves-effect waves-light float-right mt-1 mr-3" id="btnOpenInvitation" data-animation="fadein" data-target="#inviteModal">@Html.Raw(localResource.btn_invite)</div>*@
+                            <!-- Modal -->
+                            <div class="modal fade" id="inviteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">@Html.Raw(localResource.txt_invitation_title)</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="input-group mb-3 class=" tags-default"">
+                                                <input type="text" data-role="tagsinput" id="txtInvite" class="form-control" placeholder="@Html.Raw(localResource.txt_ph_invitate)" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-outline-secondary btn-primary" id="btn_invite" type="button">@Html.Raw(localResource.btn_invite)</button>
+                                                </div>
+                                            </div>
+                                            <table id="dtInvitations" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Id</th>
+                                                        <th>@Html.Raw(localResource.txt_col_email)</th>
+                                                        <th>@Html.Raw(localResource.txt_col_name)</th>
+                                                        <th>@Html.Raw(localResource.txt_col_date)</th>
+                                                        <th>@Html.Raw(localResource.txt_col_status)</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody style="font-size: 14px;"></tbody>
+                                            </table>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">@Html.Raw(localResource.btn_cancel)</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    }
+
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="text-center card-box">
+                            <div class="member-card">
+                                <div class="thumb-lg member-thumb m-b-10 center-page">
+                                    <img src="@Url.Content("~/Content/Images/company2.png")" class="rounded-circle img-thumbnail" alt="profile-image">
+                                </div>
+
+                                <div class="">
+                                    <h4 class="m-b-5 mt-2">@Model.CompanyName</h4>
+                                    <p class="text-muted">@Model.Email</p>
+                                </div>
+                                @if ((bool)ViewData["isOwner"])
+                                {
+                                    <a href="/company/edit/@Model.CompanyId" class="btn btn-success btn-sm w-sm waves-effect m-t-10 btn-rounded waves-light">@Html.Raw(localResource.btn_edit)</a>
+                                    <button type="button" id="btnDeleteCompany" data-id="@Model.CompanyId" class="btn btn-danger btn-sm w-sm waves-effect m-t-10 btn-rounded waves-light">@Html.Raw(localResource.btn_del)</button>
+                                }
+                                <div class="text-left m-t-40">
+                                    <p class="text-muted font-13"><strong>@Html.Raw(localResource.txt_rfc) :</strong> <span class="m-l-15">@Model.RFC</span></p>
+
+                                    <p class="text-muted font-13"><strong>@Html.Raw(localResource.txt_address) :</strong><span class="m-l-15">@Model.Address</span></p>
+
+                                    <p class="text-muted font-13"><strong>@Html.Raw(localResource.txt_phone) :</strong> <span class="m-l-15">@Model.PhoneNumber</span></p>
+
+                                </div>
+                            </div>
+                            
+                        </div> <!-- end card-box -->
+                    </div>
+                }
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Views/Company.js"></script>
+<script>
+    $(document).ready(function () {
+        Company.vars.messageUISweet = [
+          { "type": "success", "subject": '@MessageUILanguage.MsgSuccess', "message": '@MessageUILanguage.MsgRelogin', "buttonText": '@MessageUILanguage.ButtonTextLogin' },
+        ];
+        Company.resources.txt_mje_empty = '@Html.Raw(localResource.txt_empty)';
+        Company.resources.txt_succes_del = '@Html.Raw(localResource.txt_succes_del)'
+        Company.Init();
+        @if (Model != null && Model.CompanyId == null){
+         <text>
+            Company.EmptyCompany();
+        </text>
+        foreach (var invitation in ViewData["invitations"] as List<InvitationCompanyModel>)
+        {
+            <text>
+                Company.ToastConfirm("custom","top rigth","Invitación!","@Html.Raw(string.Format("<input id='hdnCompanyInvitate' type='hidden' value='{1}'/>"+localResource.txt_invitation_confirm, invitation.CompanyName,invitation.CompanyId))",
+                        function(){
+                            $(this).trigger('notify-hide');
+                            let d = $(this).siblings('#hdnCompanyInvitate').val();
+                            Company.OnConfirmInvitation(d);
+                        },
+                        function () {
+                            $(this).trigger('notify-hide');
+                            let d = $(this).siblings('#hdnCompanyInvitate').val();
+                            Company.OnDeclineInvitation(d);
+                        });
+            </text>
+
+
+        }
+     }
+       
+    });
+
+</script>

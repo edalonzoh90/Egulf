@@ -1,0 +1,23 @@
+﻿@using System.Web.UI.WebControls;
+@{var listFilter = new List<ListItem>
+    {
+          new ListItem { Value = "1", Text = "Todos" },
+          new ListItem { Value = "2", Text = "Recibidos" },
+          new ListItem { Value = "3", Text = "Ofertados" },
+    };
+}
+<div class="row mt-3" id="container-offer">
+    <div class="form-group col-md-12 col col-xs-12">
+        <div class="input-group">
+            @Html.DropDownList("offerFilter", new SelectList(listFilter, "Value", "Text"),
+                    new { @class = "form-control " })
+            <span class="input-group-btn">
+                <button onclick="Match.LoadOfferts();" class="btn btn-icon waves-effect waves-light btn-primary m-b-5 btn-sm "> <i class="fa fa-refresh"></i> </button>
+            </span>
+        </div>
+    </div>
+</div>
+<div id="offersCard" class="col-sm-12">
+    <p>No se encontraron resultados, seleccione un filtro</p>
+</div>
+

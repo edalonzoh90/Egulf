@@ -1,0 +1,72 @@
+﻿@using languageUIUserSession = EGULF.App_LocalResources.UserSession
+@using localResource = EGULF.App_LocalResources.Main
+
+@{
+    ViewBag.Username = EGULF.Helpers.SessionWeb.User != null ? EGULF.Helpers.SessionWeb.User.UserName : "Anonymous";
+}
+<script>
+    var urlBase = '@Url.Content("~/")';
+    var urlSupport = '@Url.Content("~/Support/")';
+</script>
+
+<nav class="navbar-custom">
+    <ul class="list-inline float-right mb-0">
+
+        <li class="text-white list-inline-item dropdown notification-list" aria-haspopup="false" aria-expanded="false">
+            <a class="nav-link waves-effect waves-light" data-toggle="modal" data-target="#help-modal" data-overlaycolor="#36404a">
+                <i class="mdi mdi-help-circle-outline noti-icon"></i>
+            </a>
+        </li>
+
+        <li class="list-inline-item dropdown notification-list">       
+            <a id="alert" class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown" href="#" role="button"
+               aria-haspopup="false" aria-expanded="false">
+                <i class="mdi mdi-bell noti-icon"></i>
+                @MvcHtmlString.Create(@Html.Action("Total", "Alert", new { Area = string.Empty }).ToString())
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg" aria-labelledby="Preview" style="min-width:380px">
+                <div class="dropdown-item noti-title">
+                    <h5 class="font-16"><span class="badge badge-danger float-right"></span>@Html.Raw(localResource.Notifications)</h5>
+                </div>
+                <div id="alerts">
+                    @MvcHtmlString.Create(@Html.Action("LastAlerts", "Alert", new { Area = string.Empty }).ToString())
+                    <a href="/alert/index" class="dropdown-item notify-item notify-all">
+                        @Html.Raw(localResource.All)
+                    </a>
+                </div>
+            </div>
+        </li>
+
+        <!--USER SESSION OPTIONS-->
+        <li class="list-inline-item dropdown notification-list">
+            <a id="profileLink"class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+               aria-haspopup="false" aria-expanded="false">
+                <img src="@Url.Action("GetUserImage","Profile")" alt="user" class="rounded-circle">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right profile-dropdown " aria-labelledby="Preview">
+                <!-- item-->
+                <div class="dropdown-item noti-title">
+                    <h5 class="text-overflow">@ViewBag.UserName.ToUpper()</h5>
+                </div>
+                <!-- item-->
+                <a href="@Url.Action("Index","Profile")" class="dropdown-item notify-item">
+                    <i class="mdi mdi-account-star-variant"></i> <span>@languageUIUserSession.TextProfile</span>
+                </a>
+                <!-- item-->
+                <a href="@Url.Action("Logout","Login")" class="dropdown-item notify-item">
+                    <i class='ti-power-off'></i> <span>@languageUIUserSession.TextLogOut</span>
+                </a>
+            </div>
+        </li>
+    </ul>
+
+    <!--MENU BARS-->
+    <ul class="list-inline menu-left mb-0">
+        <li class="float-left">
+            <button class="button-menu-mobile open-left waves-light waves-effect">
+                <i class="mdi mdi-menu"></i>
+            </button>
+        </li>
+    </ul>
+</nav>

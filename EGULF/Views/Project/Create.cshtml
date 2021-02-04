@@ -1,0 +1,125 @@
+﻿@model EGullf.Services.Models.Operation.ProjectModel
+@using projectLanguageUI = EGULF.App_LocalResources.Project
+@using messageLanguageUI = EGULF.App_LocalResources.MessageUI
+
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    var EmptyList = new SelectList(string.Empty);
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">@projectLanguageUI.PagerTitle</h4>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-md-center">
+    <div class="col-xl-10 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card-box" id="CreateSection">
+
+            <div role="application" class="wizard clearfix vertical">
+                @*<h4 class="m-t-20 header-title">
+                <b>@projectLanguageUI.CreateProjectTitle</b>
+            </h4>
+            <p>@projectLanguageUI.CreateProjectSubtitle</p>*@
+
+
+                <!--TABS SECTION-->
+                <div class="steps clearfix">
+                    <ul role="tablist">
+                        <li role="tab" id="tab1CP" class="current" aria-disabled="false" aria-selected="true">
+                            <a id="tabCreateProject1" href="javascript:CreateProject.LoadStep(1);" aria-controls="tabContentCreateProject1">
+                                <span class="number">1.</span> @projectLanguageUI.LabelCreateStep1
+                            </a>
+                        </li>
+                        <li role="tab" id="tab2CP" class="disabled" aria-disabled="true">
+                            <a id="tabCreateProject2" href="javascript:CreateProject.LoadStep(2);" aria-controls="tabContentCreateProject2">
+                                <span class="number">2.</span> @projectLanguageUI.LabelCreateStep2
+                            </a>
+                        </li>
+                        <li role="tab" id="tab3CP" class="disabled" aria-disabled="true">
+                            <a id="tabCreateProject3" href="javascript:CreateProject.LoadStep(3);" aria-controls="tabContentCreateProject3">
+                                <span class="number">3.</span> @projectLanguageUI.LabelCreateStep3
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!--END TABS SECTION-->
+
+                <!--CONTENT TABS SECTION-->
+                <div class="content clearfix">
+
+                    <section id="tabContentCreateProject1" role="tabpanel" aria-labelledby="tabContentCreateProject1" class="current" aria-hidden="false">
+                        @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "ProjectBasicInfo", @class = "form-row", @data_toggle = "validator" }))
+                        {
+                            @Html.Partial("BasicInformation")
+                        }
+                    </section>
+                    <section id="tabContentCreateProject2" role="tabpanel" aria-labelledby="tabContentCreateProject2" aria-hidden="true" style="display: none;">
+                        @using (Html.BeginForm("", "", FormMethod.Post, new { id = "ProjectSpecificInfo", @class = "form-row", @data_toggle = "validator" }))
+                        {
+                            @Html.Partial("SpecificInformation")
+                        }
+                    </section>
+                    <section id="tabContentCreateProject3" role="tabpanel" aria-labelledby="tabContentCreateProject3" aria-hidden="true" style="display: none;">
+                        @using (Html.BeginForm("", "", FormMethod.Post, new { id = "ProjectCategorySuitability", @class = "", @data_toggle = "validator" }))
+                        {
+                            @Html.Partial("CategorySuitability")
+                        }
+                    </section>
+
+                </div>
+                <!--END CONTENT TABS SECTION-->
+
+                <div class="actions clearfix">
+                    <ul role="menu" aria-label="Pagination">
+                        @*<li>
+                            <a id="btnPrevious" href="javascript:CreateProject.Cancel();" class="" role="menuitem">
+                                <span>@messageLanguageUI.ButtonTextCancel</span>
+                            </a>
+                        </li>*@
+                        <li>
+                            <a id="btnBefore" href="javascript:CreateProject.Previous();" style="display:none"  role="menuitem">
+                                @*<i class="fa fa-arrow-left"></i>*@
+                                <span>@messageLanguageUI.ButtonTextPrevious</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a id="btnNext" href="javascript:CreateProject.Next();" class="" role="menuitem">
+                                @*<i class="fa fa-arrow-right"></i>*@
+                                <span>@messageLanguageUI.ButtonTextNext</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a id="btnFinish" href="javascript:CreateProject.ValidateAndSave();" class="btn waves-effect waves-light" style="display:none" role="menuitem">
+                                @*<i class="fa fa-floppy-o"></i>*@
+                                <span>@messageLanguageUI.ButtonTextFinish</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var _UIMessages = [
+        {"type":"success","subject":'@messageLanguageUI.ToastSubjectSuccess',"message":'@messageLanguageUI.MsgSuccess' },
+        {"type":"error","subject":'@messageLanguageUI.ToastSubjectError',"message":'@messageLanguageUI.MsgError'}
+    ];
+
+    var _ProjectId = @ViewBag.ProjectId;
+    var _UrlCntrlBase = '@Url.Content("~/Project/")';
+    @*var _ProjectCategoryType = @Html.Raw(ViewBag.ProjectCategoryType);*@
+    var _ProjectCategoryType = @Html.Raw(ViewBag.LstProjectCategoryType);
+    var _CabinSpecificationType = @Html.Raw(ViewBag.CabinSpecificationType);
+
+    var _BtnTextOk = '@messageLanguageUI.ButtonTextOk';
+</script>
+<script src="~/Scripts/Views/ProjectCreateScript.js"></script>

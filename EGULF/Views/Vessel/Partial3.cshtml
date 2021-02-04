@@ -1,0 +1,252 @@
+﻿@using globalResource = EGULF.App_LocalResources.Main
+@using localResource = EGULF.App_LocalResources.Vessels
+
+@model EGullf.Services.Models.Operation.SpecificInformationModel
+
+@using (Html.BeginForm("Create", "Vessel", FormMethod.Post,
+                              new { @id = "CreateVesselExtraInfo", @role = "form", @data_toggle = "validator" }))
+{
+    @Html.HiddenFor(m => m.MatchableId)
+
+<div class="card-box">
+    <h4 class="m-t-0 header-title">
+        <b>@Html.Raw(localResource.Aditionals)</b>
+        &nbsp;
+        <button class="btn-primary" data-content="@Html.Raw(localResource.PemexCheckDescription)" data-trigger="focus" role="button" type="button" data-toggle="popover" data-placement="bottom" data-original-title="" title="">
+            <i class="fa fa-info-circle"></i>
+        </button>
+    </h4>
+    <div class="p-20">
+        <div class="row">
+            <div class="col-md-12 col-lg-6 col-xl-6">
+                <div class="form-group">
+                    <div class="checkbox checkbox-primary">
+                        <div class="input-group">
+                            <input name="PemexCheck" id="PemexCheck" type="checkbox">
+                            @Html.Label(localResource.PemexCheck, new { @for = "PemexCheck", @class = "control-label" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="card-box cDinamyc cTowage" style="display:none">
+        <h4 class="m-t-0 header-title"><b>@Html.Raw(localResource.Towage)</b></h4>
+        <div class="p-20">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-xl-12">
+                    <div class="form-group">
+                        @Html.Label(localResource.SubtypeId, new { @class = "control-label" })
+                        <div class="input-group">
+                            @{
+                                List<SelectListItem> lst = new List<SelectListItem>();
+                                lst.Add(new SelectListItem() { Value = "", Text = globalResource.Select });
+                                lst.Add(new SelectListItem() { Value = "1", Text = "Remolcador convencional" });
+                                lst.Add(new SelectListItem() { Value = "2", Text = "Remolcador de impulsión de azimut stern" });
+                                lst.Add(new SelectListItem() { Value = "3", Text = "Remolcador de tractor" });
+                                lst.Add(new SelectListItem() { Value = "4", Text = "Remolcador de manejo de ancla" });
+                                SelectList LstDynamicPositionSystem = new SelectList(lst);
+                            }
+                            @Html.DropDownListFor(m => m.SubtypeId, new SelectList(lst, "Value", "Text"), new { @class = "form-control" })
+                        </div>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <div class="form-group">
+                        @Html.Label(localResource.BHP, new { @class = "control-label" })
+                        <div class="input-group">
+                            @Html.TextBoxFor(m => m.BHP, new { @class = "form-control", @type = "number", @min = "1", @step = "0.01" })
+                        </div>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-6 cBollardPull" style="display:none">
+                    <div class="form-group">
+                        @Html.Label(localResource.BollardPull, new { @class = "control-label" })
+                        <div class="input-group">
+                            @Html.TextBoxFor(m => m.BollardPull, new { @class = "form-control", @type = "number", @min = "1", @step = "0.01" })
+                            <span class="input-group-addon bootstrap-touchspin-postfix">T</span>
+                            <button type="button" class="input-group-addon bg-primary b-0 text-white" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="@Html.Raw(localResource.BollardPullDescription)"> <i class="ion-information-circled"></i> </button>
+                        </div>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-6 cBollardPullAhead" style="display:none">
+                    <div class="form-group">
+                        @Html.Label(localResource.BollardPullAhead, new { @class = "control-label" })
+                        <div class="input-group">
+                            @Html.TextBoxFor(m => m.BollardPullAhead, new { @class = "form-control", @type = "number", @min = "1", @step = "0.01" })
+                            <span class="input-group-addon bootstrap-touchspin-postfix">T</span>
+                            <button type="button" class="input-group-addon bg-primary b-0 text-white" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="@Html.Raw(localResource.BollardPullAheadDescription)"> <i class="ion-information-circled"></i> </button>
+                        </div>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-6 cBollardPullAstern" style="display:none">
+                    <div class="form-group">
+                        @Html.Label(localResource.BollardPullAstern, new { @class = "control-label" })
+                        <div class="input-group">
+                            @Html.TextBoxFor(m => m.BollardPullAstern, new { @class = "form-control", @type = "number", @min = "1", @step = "0.01" })
+                            <span class="input-group-addon bootstrap-touchspin-postfix">T</span>
+                            <button type="button" class="input-group-addon bg-primary b-0 text-white" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="@Html.Raw(localResource.BollardPullAsternDescription)"> <i class="ion-information-circled"></i> </button>
+                        </div>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-box cDinamyc cPersonnelTransportation" style="display:none">
+        <h4 class="m-t-0 header-title"><b>@Html.Raw(localResource.PersonnelTransportation)</b></h4>
+        <div class="p-20">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-xl-12">
+                    <div class="form-group">
+                        @Html.Label(localResource.NumberPassenger, new { @class = "control-label" })
+                        <div class="input-group">
+                            @Html.TextBoxFor(m => m.NumberPassenger, new { @class = "form-control", @type = "number", @min = "1", @step = "1" })
+                        </div>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-xl-12">
+                    <p class="text-muted m-b-30 font-14">
+                        <strong>@Html.Raw(localResource.CabinsSpecification)</strong>
+                    </p>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <div class="form-group">
+                        @Html.Label(localResource.Simple, new { @class = "control-label" })
+                        <div class="input-group">
+                            @Html.TextBoxFor(m => m.SingleBerth, null, new { @class = "form-control", @type = "number", @min = "0" })
+                        </div>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <div class="form-group">
+                        @Html.Label(localResource.Double, new { @class = "control-label" })
+                        <div class="input-group">
+                            @Html.TextBoxFor(m => m.DoubleBerth, null, new { @class = "form-control", @type = "number", @min = "0" })
+                        </div>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <div class="form-group">
+                        @Html.Label(localResource.Cuadruple, new { @class = "control-label" })
+                        <div class="input-group">
+                            @Html.TextBoxFor(m => m.FourBerth, null, new { @class = "form-control", @type = "number", @min = "0" })
+                        </div>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-xl-12">
+                    <p class="text-muted m-b-30 font-14">
+                        <strong>@Html.Raw(localResource.Amenities)</strong>
+                    </p>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <div class="form-group">
+                        <div class="checkbox checkbox-primary">
+                            <input name="AirCondition" id="AirCondition" type="checkbox" value=true>
+                            @Html.Label(localResource.AirCondition, new { @for = "AirCondition", @class = "control-label" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <div class="form-group">
+                        <div class="checkbox checkbox-primary">
+                            <input name="MessRoom" id="MessRoom" type="checkbox" value=true>
+                            @Html.Label(localResource.MessRoom, new { @for = "MessRoom", @class = "control-label" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <div class="form-group">
+                        <div class="checkbox checkbox-primary">
+                            <input name="ControlRoom" id="ControlRoom" type="checkbox" value=true>
+                            @Html.Label(localResource.ControlRoom, new { @for = "ControlRoom", @class = "control-label" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <div class="form-group">
+                        <div class="checkbox checkbox-primary">
+                            <input name="ConferenceRoom" id="ConferenceRoom" type="checkbox" value=true>
+                            @Html.Label(localResource.ConferenceRoom, new { @for = "ConferenceRoom", @class = "control-label" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <div class="form-group">
+                        <div class="checkbox checkbox-primary">
+                            <input name="Gymnasium" id="Gymnasium" type="checkbox" value=true>
+                            @Html.Label(localResource.Gym, new { @for = "Gymnasium", @class = "control-label" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <div class="form-group">
+                        <div class="checkbox checkbox-primary">
+                            <input name="SwimingPool" id="SwimingPool" type="checkbox" value=true>
+                            @Html.Label(localResource.Pool, new { @for = "SwimingPool", @class = "control-label" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <div class="form-group">
+                        <div class="checkbox checkbox-primary">
+                            <input name="Office" id="Office" type="checkbox" value=true>
+                            @Html.Label(localResource.Office, new { @for = "Office", @class = "control-label" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <div class="form-group">
+                        <div class="checkbox checkbox-primary">
+                            <input name="Hospital" id="Hospital" type="checkbox" value=true>
+                            @Html.Label(localResource.Hospital, new { @for = "Hospital", @class = "control-label" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-box cDinamyc cMaterialTransportation" style="display:none">
+        <h4 class="m-t-0 header-title"><b>@Html.Raw(localResource.MaterialTransportation)</b></h4>
+        <div class="p-20">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-xl-12">
+                    <div class="form-group">
+                        @Html.Label(localResource.CargoCapacity, new { @class = "control-label" })
+                        <div class="input-group">
+                            @Html.TextBoxFor(m => m.CargoCapacity, new { @class = "form-control", @type = "number", @min = "1", @step = "0.01" })
+                            <span class="input-group-addon bootstrap-touchspin-postfix">T</span>
+                        </div>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-12 col-xl-12">
+                    <div class="form-group">
+                        @Html.Label(localResource.PumpRates, new { @class = "control-label" })
+                        <div class="input-group">
+                            @Html.TextBoxFor(m => m.PumpRates, new { @class = "form-control", @type = "number", @min = "1", @step = "0.01" })
+                            <span class="input-group-addon bootstrap-touchspin-postfix">m&sup3/h</span>
+                        </div>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

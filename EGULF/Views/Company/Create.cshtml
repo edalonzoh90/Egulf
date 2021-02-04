@@ -1,0 +1,102 @@
+﻿@using localResource = EGULF.App_LocalResources.Company
+@using MessageUILanguage = EGULF.App_LocalResources.MessageUI
+@model EGullf.Services.Models.Management.CompanyModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title"> @Html.Raw(localResource.title_create) </h4>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<div class="row full-height"></div>
+<div class="row justify-content-md-center">
+    <div class="card-box col-xs-12 col-md-6 col-lg-6">
+        <h4 class="m-t-0 m-b-20 header-title"><b>@Html.Raw(localResource.txt_title_create)</b></h4>
+        <div class="row">
+            <div class="col-md-12">
+                @using (Html.BeginForm("Create", "Company", FormMethod.Post, new { @id = "companyRegister", @role = "form", @data_toggle = "validator" }))
+            {
+                    <div class="form-group">
+                        <label for="txtName" class="control-label">@Html.Raw(localResource.txt_name)</label>
+                        @Html.TextBoxFor(m => m.CompanyName, new
+                   {
+                       @class = "form-control",
+                       @id = "txtName",
+                       @placeholder = @Html.Raw(localResource.txt_name),
+                       @data_remote = @Url.Content("~/company/valid"),
+                       @data_remote_error = @Html.Raw(localResource.error_name),
+                       @name = "txtName",
+                       @required = ""
+                   })
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtRFC" class="control-label">@Html.Raw(localResource.txt_rfc)</label>
+                        @Html.TextBoxFor(m => m.RFC, new
+                   {
+                       @class = "form-control",
+                       @id = "txtRFC",
+                       @data_minlength_error = @Html.Raw(localResource.error_minlength_rfc),
+                       @data_remote = @Url.Content("~/company/valid_RFC"),
+                       @data_remote_error = @Html.Raw(localResource.error_unique_rfc),
+                       @placeholder = @Html.Raw(localResource.txt_rfc),
+                       @required = "",
+                       @data_minlength = "10"
+                   })
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtAddress" class="control-label">@Html.Raw(localResource.txt_address)</label>
+                        @Html.TextBoxFor(m => m.Address, new { @class = "form-control", @id = "txtAddress", @placeholder = @Html.Raw(localResource.txt_address), @required = "" })
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtPhone" class="control-label">@Html.Raw(localResource.txt_phone)</label>
+                        @Html.TextBoxFor(m => m.PhoneNumber, new
+                   {
+                       @type = "tel",
+                       @pattern = "[0-9]{3}[0-9]{3}[0-9]{4}",
+                       @data_pattern_error = @Html.Raw(localResource.error_phone),
+                       @class = "form-control",
+                       @id = "txtPhone",
+                       @placeholder = @Html.Raw(localResource.txt_phone),
+                       @required = ""
+                   })
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtEmail" class="control-label">@Html.Raw(localResource.txt_email)</label>
+                        @Html.TextBoxFor(m => m.Email, new { @type = "email", @class = "form-control", @id = "txtEmail", @placeholder = @Html.Raw(localResource.txt_email), @required = "" })
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" id="btnSave" class="btn btn-primary">@Html.Raw(localResource.btn_save)</button>
+                        <button type="button" id="btnCancelSave" class="btn btn-danger">@Html.Raw(localResource.btn_cancel)</button>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/Views/Company.js"></script>
+<script>
+    $(document).ready(function () {
+        Company.vars.messageUISweet = [
+         { "type": "success", "subject": '@MessageUILanguage.MsgSuccess', "message": '@MessageUILanguage.MsgRelogin', "buttonText": '@MessageUILanguage.ButtonTextLogin' },
+        ];
+       Company.resources.txt_success_invite = '@Html.Raw(localResource.txt_success_invite)'
+        Company.resources.txt_error_invite = '@Html.Raw(localResource.txt_error_invite)'
+        Company.resources.txt_error_confirm = '@Html.Raw(localResource.txt_error_confirm)'
+        Company.Init();
+    });
+</script>
+

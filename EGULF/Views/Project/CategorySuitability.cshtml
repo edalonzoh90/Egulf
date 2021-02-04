@@ -1,0 +1,257 @@
+﻿@model EGullf.Services.Models.Operation.ProjectModel
+@using projectLanguageUI = EGULF.App_LocalResources.Project
+
+@Html.HiddenFor(m => m.ProjectId)
+<div id="IsTowageContainer" class="form-row">
+    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <label class="control-label">@projectLanguageUI.LabelSubtype</label>
+        <div class="form-check">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="radio radio-primary form-check-inline">
+                    <input type="radio" id="ConventionalTug" name="TugType" value="1" />
+                    <label for="ConventionalTug">@projectLanguageUI.OptionConventionalTug</label>
+                </div>
+            </div>      
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="radio radio-primary form-check-inline">
+                    <input type="radio" id="SternDriveTug" name="TugType" value="2" />
+                    <label for="SternDriveTug">@projectLanguageUI.OptionSternDriveTug</label>
+                </div>
+            </div>      
+        </div>
+    </div>
+
+    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <label class="control-label" for="BollardPull">@projectLanguageUI.LabelBollardPull</label>
+        <div class="input-group">
+            @Html.TextBoxFor(m => m.BollardPull, new
+       {
+           @class = "form-control",
+           @id = "BollardPull",
+           @name = "BollardPull",
+           @type = "number",
+           @step = ".05",
+           @min = 1
+       })
+            <span class="input-group-addon bootstrap-touchspin-postfix">@projectLanguageUI.PlaceholderTonnes</span>
+            <button class="input-group-addon bg-primary text-white" data-content="@projectLanguageUI.TooltipBollarPull" data-toggle="popover" data-placement="bottom" data-trigger="focus" role="button" type="button">
+                <i class="fa fa-info-circle"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <label class="control-label" for="BollardPullAhead">@projectLanguageUI.LabelBollardPullAhead</label>
+        <div class="input-group">
+            @Html.TextBoxFor(m => m.BollardPullAhead, new
+       {
+           @class = "form-control",
+           @id = "BollardPullAhead",
+           @name = "BollardPullAhead",
+           @type = "number",
+           @step = ".05",
+           @min = 1
+       })
+            <span class="input-group-addon bootstrap-touchspin-postfix">@projectLanguageUI.PlaceholderTonnes</span>
+            <button class="input-group-addon bg-primary text-white" data-content="@projectLanguageUI.TooltipBollarPull" data-toggle="popover" data-placement="bottom" data-trigger="focus" role="button" type="button">
+                <i class="fa fa-info-circle"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <label class="control-label" for="BollardPullAstern">@projectLanguageUI.LabelBollardPullAstern</label>
+        <div class="input-group">
+            @Html.TextBoxFor(m => m.BollardPullAstern, new
+       {
+           @class = "form-control",
+           @id = "BollardPullAstern",
+           @name = "BollardPullAstern",
+           @type = "number",
+           @step = ".05",
+           @min = 1
+       })
+            <span class="input-group-addon bootstrap-touchspin-postfix">@projectLanguageUI.PlaceholderMT</span>
+            <button class="input-group-addon bg-primary text-white" data-content="@projectLanguageUI.TooltipBollarPull" data-toggle="popover" data-placement="bottom" data-trigger="focus" role="button" type="button">
+                <i class="fa fa-info-circle"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="IsPersonnelTransportationContainer" class="form-row">
+    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <label class="control-label" for="NumberPassenger">@projectLanguageUI.LabelNumberPassengers</label>
+        <div class="input-group">
+            @Html.TextBoxFor(m => m.NumberPassenger, new
+         {
+             @id = "NumberPassenger",
+             @name = "NumberPassenger",
+             @class = "form-control",
+             @type = "number",
+             @min = 1
+         })
+            <button class="input-group-addon bg-primary text-white" data-content="@projectLanguageUI.TooltipNumberPassengersPersonelTransportation" data-trigger="focus" role="button" type="button" data-toggle="popover" data-placement="bottom">
+                <i class="fa fa-info-circle"></i>
+            </button>
+        </div>     
+    </div>
+
+    @*<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <label>@projectLanguageUI.LabelCabinSpecifications</label>
+    </div>
+    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4">
+        <label class="control-label" for="SingleBerth">@projectLanguageUI.LabelSingleBerth</label>
+        @Html.TextBoxFor(m => m.SingleBerth, new
+   {
+       @id = "SingleBerth",
+       @name = "SingleBerth",
+       @class = "form-control",
+       @type = "number",
+       @min = 1
+   })
+    </div>
+    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4">
+        <label class="control-label" for="DoubleBerth">@projectLanguageUI.LabelDoubleBerth</label>
+        @Html.TextBoxFor(m => m.DoubleBerth, new
+   {
+       @id = "DoubleBerth",
+       @name = "DoubleBerth",
+       @class = "form-control",
+       @type = "number",
+       @min = 1
+   })
+    </div>
+    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4">
+        <label class="control-label" for="FourBerth">@projectLanguageUI.LabelFourBerth</label>
+        @Html.TextBoxFor(m => m.FourBerth, new
+   {
+       @id = "FourBerth",
+       @name = "FourBerth",
+       @class = "form-control",
+       @type = "number",
+       @min = 1
+   })
+    </div>*@
+
+
+    <div class="form-group col xs 12 col-sm-12 col-md-12 col-lg-12">
+        <label>@projectLanguageUI.LabelAmenities</label>
+        <div class="checkbox checkbox-primary">
+            @Html.TextBoxFor(m => m.AirCondition, new { @type = "checkbox" })
+            <label for="AirCondition">@projectLanguageUI.OptionAirConditioning</label>
+        </div>
+        <div class="checkbox checkbox-primary">
+            @Html.TextBoxFor(m => m.MessRoom, new { @type = "checkbox" })
+            <label for="MessRoom">@projectLanguageUI.OptionMessRoom</label>
+        </div>
+        <div class="checkbox checkbox-primary">
+            @Html.TextBoxFor(m => m.ControlRoom, new { @type = "checkbox" })
+            <label for="ControlRoom">@projectLanguageUI.OptionControlRoom</label>
+        </div>
+        <div class="checkbox checkbox-primary">
+            @Html.TextBoxFor(m => m.ConferenceRoom, new { @type = "checkbox" })
+            <label for="ConferenceRoom">@projectLanguageUI.OptionConferenceRoom</label>
+        </div>
+        <div class="checkbox checkbox-primary">
+            @Html.TextBoxFor(m => m.Gymnasium, new { @type = "checkbox" })
+            <label for="Gymnasium">@projectLanguageUI.OptionGymnasium</label>
+        </div>
+        <div class="checkbox checkbox-primary">
+            @Html.TextBoxFor(m => m.SwimingPool, new { @type = "checkbox" })
+            <label for="SwimingPool">@projectLanguageUI.OptionSwimingPool</label>
+        </div>
+        <div class="checkbox checkbox-primary">
+            @Html.TextBoxFor(m => m.Office, new { @type = "checkbox" })
+            <label for="Office">@projectLanguageUI.OptionOffices</label>
+        </div>
+        <div class="checkbox checkbox-primary">
+            @Html.TextBoxFor(m => m.Hospital, new { @type = "checkbox" })
+            <label for="Hospital">@projectLanguageUI.OptionHospital</label>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="IsMaterialTransportationContainer" class="form-row">
+    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6">
+        <label class="control-label" for="CargoCapacity">@projectLanguageUI.LabelCargoCapacity</label>
+        <div class="input-group">
+            @Html.TextBoxFor(m => m.CargoCapacity, new
+       {
+           @id = "CargoCapacity",
+           @name = "CargoCapacity",
+           @class = "form-control",
+           @type = "number",
+           @min = 1
+       })
+            <span class="input-group-addon bootstrap-touchspin-postfix">@projectLanguageUI.PlaceholderTonnes</span>
+            <button class="input-group-addon bg-primary text-white" data-content="@projectLanguageUI.TooltipTonnes" data-trigger="focus" role="button" type="button" data-toggle="popover" data-placement="bottom">
+                <i class="fa fa-info-circle"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6">
+        <label class="control-label" for="DeckStrenght">@projectLanguageUI.LabelDeckStrenght</label>
+        <div class="input-group">
+            @Html.TextBoxFor(m => m.DeckStrenght, new
+       {
+           @id = "DeckStrenght",
+           @name = "DeckStrenght",
+           @class = "form-control",
+           @type = "number",
+           @min = 1
+       })
+            <span class="input-group-addon bootstrap-touchspin-postfix">@projectLanguageUI.PlaceholderTM2</span>
+            <button class="input-group-addon bg-primary text-white" data-content="@projectLanguageUI.TooltipTM2" data-trigger="focus" role="button" type="button" data-toggle="popover" data-placement="bottom">
+                <i class="fa fa-info-circle"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="IsBunkeringContainer" class="form-row">
+    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6">
+        <label class="control-label" for="TankCapacity">@projectLanguageUI.LabelTankCapacity</label>
+        <div class="input-group">
+            @Html.TextBoxFor(m => m.TankCapacity, "{0:n2}", new
+       {
+           @class = "form-control",
+           @id = "TankCapacity",
+           @name = "TankCapacity",
+           @type = "number",
+           @step = ".05",
+           @min = 1
+       })
+            <span class="input-group-addon bootstrap-touchspin-postfix">@projectLanguageUI.PlaceholderM3</span>
+            <button class="input-group-addon bg-primary text-white" data-content="@projectLanguageUI.TooltipsCubicMeters" data-trigger="focus" role="button" type="button" data-toggle="popover" data-placement="bottom">
+                <i class="fa fa-info-circle"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6">
+        <label class="control-label" form="DischargeRate">@projectLanguageUI.LabelDischargeRate</label>
+        <div class="input-group">
+            @Html.TextBoxFor(m => m.DischargeRate, "{0:n2}", new
+       {
+           @class = "form-control",
+           @id = "DischargeRate",
+           @name = "DischargeRate",
+           @type = "number",
+           @step = ".05",
+           @min = 1
+       })
+            <span class="input-group-addon bootstrap-touchspin-postfix">@projectLanguageUI.PlaceholderM3H</span>
+            <button class="input-group-addon bg-primary text-white" data-content="@projectLanguageUI.TooltipM3H" data-trigger="focus" role="button" type="button" data-toggle="popover" data-placement="bottom">
+                <i class="fa fa-info-circle"></i>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+﻿@model EGullf.Services.Models.Operation.VesselCostModel
+
+@using globalResource = EGULF.App_LocalResources.Main
+@using localResource = EGULF.App_LocalResources.Vessels
+
+@using (Html.BeginForm("Create", "Vessel", FormMethod.Post,
+                              new { @id = "CreateVesselCost", @role = "form", @data_toggle = "validator" }))
+{
+    @Html.HiddenFor(m => m.VesselId)
+    <div class="card-box">
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-xl-12">
+                <div class="form-group">
+                    @Html.Label(localResource.LodgingCost, new { @class = "control-label" })
+                    <div class="input-group">
+                        <span class="input-group-addon bootstrap-touchspin-postfix">$</span>
+                        @Html.TextBoxFor(m => m.LodgingCost, new { @class = "form-control", @type = "number", @min = "1", @step = "0.01" })
+                        <span class="input-group-addon bootstrap-touchspin-postfix">USD/PAX/día</span>
+                    </div>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-xl-12">
+                <div class="form-group">
+                    @Html.Label(localResource.MealCost, new { @class = "control-label" })
+                    <div class="input-group">
+                        <span class="input-group-addon bootstrap-touchspin-postfix">$</span>
+                        @Html.TextBoxFor(m => m.MealCost, new { @class = "form-control", @type = "number", @min = "1", @step = "0.01" })
+                        <span class="input-group-addon bootstrap-touchspin-postfix">USD/PAX/día</span>
+                    </div>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-xl-12">
+                <div class="form-group">
+                    @Html.Label(localResource.LaundryCost, new { @class = "control-label" })
+                    <div class="input-group">
+                        <span class="input-group-addon bootstrap-touchspin-postfix">$</span>
+                        @Html.TextBoxFor(m => m.LaundryCost, new { @class = "form-control", @type = "number", @min = "1", @step = "0.01" })
+                        <span class="input-group-addon bootstrap-touchspin-postfix">USD/PAX/día</span>
+                    </div>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-xl-12 cDinamyc cTowage">
+                <div class="form-group">
+                    @Html.Label(localResource.DailyRateTowing, new { @class = "control-label" })
+                    <div class="input-group">
+                        <span class="input-group-addon bootstrap-touchspin-postfix">$</span>
+                        @Html.TextBoxFor(m => m.DailyRateTowing, new { @class = "form-control", @type = "number", @min = "1", @step = "0.01" })
+                        <span class="input-group-addon bootstrap-touchspin-postfix">USD/día</span>
+                    </div>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-xl-12 cDinamyc cPersonnelTransportation">
+                <div class="form-group">
+                    @Html.Label(localResource.DailyRatePersonnelTransportation, new { @class = "control-label" })
+                    <div class="input-group">
+                        <span class="input-group-addon bootstrap-touchspin-postfix">$</span>
+                        @Html.TextBoxFor(m => m.DailyRatePersonnelTransportation, new { @class = "form-control", @type = "number", @min = "1", @step = "0.01" })
+                        <span class="input-group-addon bootstrap-touchspin-postfix">USD/día</span>
+                    </div>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-xl-12 cDinamyc cMaterialTransportation">
+                <div class="form-group">
+                    @Html.Label(localResource.DailyRateMaterialTransportation, new { @class = "control-label" })
+                    <div class="input-group">
+                        <span class="input-group-addon bootstrap-touchspin-postfix">$</span>
+                        @Html.TextBoxFor(m => m.DailyRateMaterialTransportation, new { @class = "form-control", @type = "number", @min = "1", @step = "0.01" })
+                        <span class="input-group-addon bootstrap-touchspin-postfix">USD/día</span>
+                    </div>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-xl-12 cDinamyc cFlotel">
+                <div class="form-group">
+                    @Html.Label(localResource.DailyRateFlotel, new { @class = "control-label" })
+                    <div class="input-group">
+                        <span class="input-group-addon bootstrap-touchspin-postfix">$</span>
+                        @Html.TextBoxFor(m => m.DailyRateFlotel, new { @class = "form-control", @type = "number", @min = "1", @step = "0.01" })
+                        <span class="input-group-addon bootstrap-touchspin-postfix">USD/día</span>
+                    </div>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

@@ -1,0 +1,144 @@
+﻿@model EGullf.Services.Models.Operation.ProjectModel
+@using projectLanguageUI = EGULF.App_LocalResources.Project
+@using messageLanguageUI = EGULF.App_LocalResources.MessageUI
+
+
+    @Html.HiddenFor(m => m.ProjectId)
+    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <label class="control-label" for="ProjectTypeId">@projectLanguageUI.LabelProjectType</label>
+        <div class="input-group">
+            @Html.DropDownListFor(m => m.ProjectTypeId, new SelectList(ViewBag.LstProjectType, "Value", "Text"), projectLanguageUI.LabelSelectOne, new
+   {
+       @class = "form-control custom-select",
+       @id = "ProjectTypeId",
+       @name = "ProjectTypeId",
+       @required = "required",
+   })
+            <button class="input-group-addon bg-primary text-white" data-content="@projectLanguageUI.TooltipProjectType" data-toggle="popover" data-placement="bottom"  data-trigger="focus" role="button" type="button">
+                <i class="fa fa-info-circle"></i>
+            </button>
+        </div>
+    </div>
+
+
+    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <label class="control-label" for="StartDate">@projectLanguageUI.LabelStartDate</label>
+        <div class="input-group">
+            @Html.TextBoxFor(m => m.StartDate, new
+       {
+           @class = "form-control",
+           @id = "StartDate",
+           @name = "StartDate",
+           @type = "date",
+           @required = "required",
+           //@min = DateTime.Now.ToString("yyyy-MM-dd"),
+           //@data_error = projectLanguageUI.MsgWrongStartDate
+           @data_remote = Url.Content("~/Project/ValidateStartDate?ProjectId=" + ViewBag.ProjectId),
+           @data_remote_error = projectLanguageUI.MsgWrongStartDate
+       })
+            <button class="input-group-addon bg-primary text-white" data-content="@projectLanguageUI.TooltipStartDate" data-toggle="popover" data-placement="bottom" data-trigger="focus" role="button" type="button">
+                <i class="fa fa-info-circle"></i>
+            </button>
+        </div>
+        <div class="help-block with-errors" style="color:red !important;"></div>
+    </div>
+
+
+    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg6">
+        <label class="control-label" for="Duration">@projectLanguageUI.LabelEstimatedDuration</label>
+        @Html.TextBoxFor(m => m.Duration, new
+{
+    @class = "form-control",
+    @id = "Duration",
+    @name = "Duration",
+    @type = "number",
+    @required = "required",
+    @min = 1
+})
+    </div>
+
+
+    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6">
+        <label class="control-label" for="IsExtension">@projectLanguageUI.LabelExtension</label>
+        <div class="form-check">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="radio radio-primary form-check-inline">
+                    <input type="radio" class="form-control" id="IsExtensionYes" name="IsExtension" value="1" style="display:inline !important;width:auto !important;" />
+                    <label for="IsExtensionYes">@projectLanguageUI.OptionYes</label>
+                </div>
+            @*</div>
+            <div class="form-check col-xs-12 col-sm-12 col-md-12 col-lg-6">*@
+                <div class="radio radio-primary form-check-inline">
+                    <input type="radio" class="form-control" id="IsExtensionNo" name="IsExtension" value="0" style="display:inline !important;width:auto !important;" checked />
+                    <label for="IsExtensionNo">@projectLanguageUI.OptionNo</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4">
+        <label class="control-label" for="Extension">@projectLanguageUI.LabelTotalExtension</label>
+        @Html.TextBoxFor(m => m.Extension, new
+   {
+       @class = "form-control",
+       @id = "Extension",
+       @name = "Extension",
+       @type = "number",
+       @disabled = "disabled",
+       @min = 1
+   })
+    </div>
+
+
+    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <label class="control-label" for="RegionId">@projectLanguageUI.LabelRegion</label>
+        @Html.DropDownListFor(m => m.RegionId, new SelectList(ViewBag.LstRegion, "Value", "Text"), projectLanguageUI.LabelSelectOne, new
+{
+    @class = "form-control",
+    @id = "RegionId",
+    @name = "RegionId",
+    @type = "text",
+    @required = "required"
+})
+    </div>
+
+
+    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <label class="control-label" for="Budget">@projectLanguageUI.LabelBudget</label>
+        <div class="">
+            <div class="form-check col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                <div class="radio radio-primary">
+                    <input type="radio" class="form-control" id="BudgetBO" name="radioBudget" value="1" style="display:inline !important;width:auto !important;" checked />
+                    <label for="BudgetBO">@projectLanguageUI.OptionBestOffer</label>
+                </div>
+            </div>
+            <div class="form-check col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                <div class="radio radio-primary">
+                    <input type="radio" class="form-control" id="BudgetMDR" name="radioBudget" value="2" style="display:inline !important;width:auto !important;" />
+                    <label for="BudgetMDR">@projectLanguageUI.OptionMaxDailyRate</label>
+                </div>
+            </div>
+            @*<div class="form-check col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                <div class="radio radio-primary">
+                    <input type="radio" class="form-control" id="BudgetLumbsum" name="radioBudget" value="3" style="display:inline !important;width:auto !important;" />
+                    <label for="BudgetLumbsum">@projectLanguageUI.OptionLumbsum</label>
+                </div>
+            </div>*@
+        </div>
+    </div>
+
+
+<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6">
+    <label class="control-label" for="MaxRateBudget">@projectLanguageUI.LabelMaxRateBudget</label>
+    @Html.TextBoxFor(m => m.MaxRateBudget, new
+{
+    @class = "form-control",
+    @id = "MaxRateBudget",
+    @name = "MaxRateBudget",
+    @type = "number",
+    @disabled = "disabled",
+    @min = 1
+})
+</div>
+

@@ -1,0 +1,272 @@
+﻿@using EGULF.Helpers
+@model EGullf.Services.Models.Management.UserPersonModel
+@using languageUI = EGULF.App_LocalResources.SingUp
+@using messagesUI = EGULF.App_LocalResources.MessageUI
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="~/Content/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/Content/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/Content/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/Content/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/Content/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/Content/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/Content/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/Content/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/Content/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/Content/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/Content/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/Content/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Content/favicon/favicon-16x16.png">
+    <link rel="manifest" href="~/Content/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="f~/Content/avicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="assets/images/favicon_1.ico">
+    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+    <link href="~/Content/plugins/bootstrap-sweetalert/sweet-alert.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Minton/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/Minton/assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/Minton/assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body cz-shortcut-listen="true" class="widescreen">
+    <section class="home">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="home-wrapper card-box">
+                        <h1 class="home-text m-t-30 m-b-20 text-center">Privacy Policy</h1>
+                        <p class="m-t-30 text-dark">
+                            This Policy describes how E-Gulf collect and use personal information to provide our services.
+                            This policy applies to all Users of our website anywhere in the world. This policy specifically
+                            applies to:
+                            <ul>
+                                <li>Charterers: Users who request or receive transportation;</li>
+                                <li>Owners: Users who provide transportation;</li>
+                            </ul>
+                            The practices described in this Policy are subject to applicable laws in the places in which we operate.
+                        </p>
+                        <h4>INFORMATION E-GULF COLLECTS</h4>
+                        <p>
+                            E-Gulf collect (i) information that you provide, such as when you create your User Account and when you register
+                            your company; (ii) information created when you use our services, such as location, usage and device information;
+                            and (iii) information from other sources, such as Uber partners and third parties that use Uber’s API.
+                        </p>
+                        @*<h4>INFORMATION YOU PROVIDE</h4>
+                        <p class="text-dark">
+                            Includes, but it is not limited to, information submitted when you:
+                            <ul>
+                                <li>
+                                    Create or update your account, mainly your name, email, phone number, login name and password, address,
+                                    payment or banking information, government identification numbers, birth date, and photo.
+                                </li>
+                                <li>Submit information about a vessel;</li>
+                                <li>Request to a personal account verification (not available in beta version);</li>
+                                <li>Request services through E-Gulf;</li>
+                                <li>Contact E-Gulf, including for customer support;</li>
+                                <li>Complete surveys sent to you by E-Gulf or on behalf of E-Gulf;</li>
+                            </ul>
+                        </p>
+                        <h4>INFORMATION CREATED UPON YOUR INTERACTION WITH THE WEBSITE</h4>
+                        <p class="text-dark">
+                            Location Information
+                            <ul>
+                                <li>
+                                    Depending on your navigator settings or device permissions, E-Gulf may collect your precise
+                                    or approximate location information as determined through data such as GPS, IP address and WiFi.
+                                </li>
+                            </ul>
+                            Transaction Information
+                            <ul>
+                                <li>
+                                    We collect transaction details related to your use of our services, including the type of services
+                                    you requested or provided, services details and specifications, delivery information, date and
+                                    time the service was provided, amount charged, distance traveled, and payment method.
+                                </li>
+                            </ul>
+                            Usage Information
+                            <ul>
+                                <li>
+                                    We collect information about how you interact with our services. This includes information such as
+                                    access dates and times, app features or pages viewed, app crashes and other system activity, type of browser,
+                                    and third-party sites or service you were using before interacting with our services.
+                                </li>
+                                <li>
+                                    In some cases, we collect this information through cookies, pixel tags, and similar technologies that create
+                                    and maintain unique identifiers. To learn more about these technologies, please see our Cookie Statement.
+                                </li>
+                            </ul>
+                            Device Information
+                            <ul>
+                                <li>
+                                    We may collect information about the devices you use to access our services, including the hardware models,
+                                    device IP address, operating systems and versions, software, file names and versions, preferred languages,
+                                    unique device identifiers, advertising identifiers, serial numbers and network information.
+                                </li>
+                            </ul>
+                            Communication Information
+                            <ul>
+                                <li>
+                                    We enable users to communicate with each other and E-Gulf through the E-Gulf platform. For example, we enable
+                                    Users to text each other. To provide this service, E-Gulf receives some information regarding texts, including
+                                    the date and time of the text, and the content of the communications.
+                                </li>
+                                <li>
+                                    E-Gulf may also use this information for customer support services (including to resolve disputes between Users),
+                                    for safety and security purposes, to improve our products and services and for analytics.
+                                </li>
+                            </ul>
+                        </p>
+                        <h4>INFORMATION FROM OTHER SOURCES</h4>
+                        <p class="text-dark">
+                            <ul>
+                                <li>User feedback, such as as ratings, compliments and complaints.</li>
+                                <li>Users or others providing information in connection with claims or disputes.</li>
+                                <li>Financial services providers.</li>
+                                <li>Publicly available sources.</li>
+                                <li>Marketing service providers.</li>
+                                <li>E-Gulf may combine the information collected from these sources with other information in its possession.</li>
+                            </ul>
+                        </p>
+                        <h4>INFORMATION SHARING AND DISCLOSURE</h4>
+                        <p>E-Gulf may share the information we collect:</p>
+                        <p><b>With other users</b></p>
+                        <ul>
+                            <li>For example, if you are a Vessel Owner, we may share your Vessel Type, Built Year, Flag, Home Port and Availability.</li>
+                            <li>Information such as:</li>
+                        </ul>
+                        <p><b>At your request</b></p>
+                        <p>This includes sharing your information with:</p>
+                        <ul>
+                            <li><b>Other people at your request.</b> For example, we may share your ETA and location with a friend at your request, or your trip information when you split a fare with a friend.</li>
+                            <li>
+                                <b>Uber business partners.</b> For example, if you requested a service through a partnership or promotional offering made by a third party, Uber may share your information with those third parties.
+                                This may include, for example, other apps or websites that integrate with our APIs, vehicle suppliers, or services, or those with an API or service with which we integrate,
+                                or business partners with whom Uber may partner with to deliver a promotion, a contest or a specialized service.
+                            </li>
+                        </ul>
+                        <p><b>With the general public when you submit content to a public forum</b></p>
+                        <p>
+                            We love hearing from our users -- including through public forums such as Uber blogs, social media, and certain features on our
+                            network. When you communicate with us through those channels, your communications may be viewable by the public.
+                        </p>
+                        <p><b>With the owner of Uber accounts that you may use</b></p>
+                        <p>With the owner of Uber accounts that you may use</p>
+                        <ul>
+                            <li>A rider using your employer’s Uber for Business profile, or taking trips arranged through Uber Central.</li>
+                            <li>A driver using an account owned by a partner transportation company.</li>
+                            <li>A rider who takes a trip arranged by a friend or under a Family Profile.</li>
+                            <li>A delivery partner acting as a substitute (U.K. only).</li>
+                        </ul>
+                        <p><b>With Uber subsidiaries and affiliates</b></p>
+                        <p>
+                            We share information with our subsidiaries and affiliates to help us provide our services or conduct data processing
+                            on our behalf. For example, Uber processes and stores information in the United States on behalf of its international
+                            subsidiaries and affiliates.
+                        </p>
+                        <p><b>With Uber service providers and business partners</b></p>
+                        <p>
+                            Uber may provide information to its vendors, consultants, marketing partners, research firms, and other service
+                            providers or business partners. This may include, for example:
+                        </p>
+                        <ul>
+                            <li>Payment processors and facilitators.</li>
+                            <li>Background check providers (drivers and delivery partners only).</li>
+                            <li>Cloud storage providers.</li>
+                            <li>Marketing partners and marketing platform providers.</li>
+                            <li>Data analytics providers.</li>
+                            <li>
+                                Research partners, including those performing surveys or research
+                                projects in partnership with Uber or on Uber’s behalf.
+                            </li>
+                            <li>Vendors that assist Uber to enhance the safety and security of its apps.</li>
+                            <li>Consultants, lawyers, accountants and other professional service providers.</li>
+                            <li>Fleet partners.</li>
+                            <li>Insurance and financing partners.</li>
+                            <li>Airports.</li>
+                            <li>Yandex Taxi and other local providers.</li>
+                            <li>Restaurant partners.</li>
+                            <li>Vehicle solution vendors or third party vehicle suppliers.</li>
+                        </ul>
+                        <p><b>For legal reasons or in the event of a dispute</b></p>
+                        <p>
+                            Uber may share your information if we believe it is required by applicable law, regulation, operating agreement,
+                            legal process or governmental request, or where the disclosure is otherwise appropriate due to safety or similar concerns.
+                        </p>
+                        <p>
+                            This includes sharing your information with law enforcement officials, government authorities, airports
+                            (if required by the airport authorities as a condition of operating on airport property), or other third parties as
+                            necessary to enforce our Terms of Service, user agreements, or other policies, to protect Uber’s rights or property
+                            or the rights, safety or property of others, or in the event of a claim or dispute relating to your use of our services.
+                            If you use another person’s credit card, we may be required by law to share information with that credit card holder,
+                            including trip information.
+                        </p>
+                        <p>
+                            This also includes sharing your information with others in connection with, or during negotiations of, any merger, sale
+                            of company assets, consolidation or restructuring, financing, or acquisition of all or a portion of our business by or
+                            into another company.
+                            Please see Uber's Guidelines for Law Enforcement Authorities for more information.
+                        </p>
+                        <p><b>With your consent</b></p>
+                        <p>
+                            Uber may share your information other than as described in this policy if we notify you and you consent to the
+                            sharing.
+                        </p>
+                        <p>
+                            By visiting and/or interacting with E-Gulf Platform, User gives implicit consent to E-Gulf to gather, register,
+                            store and use personal information and data for the provision of the Service as set out in this Privacy Policy.
+                        </p>
+                        <h4>INFORMATION GIVEN BY USER UPON REGISTRATION</h4>
+                        <p>E-Gulf retains information such as for a period of 2 years for User behalf</p>
+                        <p>
+                            User gives formal authorisation and consent to E-Gulf track and record User interaction with E-Gulf Platform,
+                            included, but not limited to, IP Address, Browser Type, Browser Version, Visited Pages within E-Gulf domain,
+                            Date and Duration of Interaction.
+                        </p>
+                        <p>How Does E-Gulf Utilize such Information?</p>
+                        <p>
+                            E-Gulf is constantly striving to , the data gathered through Users Interaction is used,
+                            mainly but not exclusively, to:
+                        </p>
+                        <ul class="m-b-30">
+                            <li>Process User Registration on E-Gulf Platform;</li>
+                            <li>Enable User to use E-Gulf Services;</li>
+                            <li>Facilitate the process of chartering;</li>
+                            <li>Keep the E-Gulf Platform a safe enviroment;</li>
+                            <li>Administer the Website and business;</li>
+                            <li>Personalise the Website for You;</li>
+                            <li>Process your registration on the Website;</li>
+                            <li>Enable your use of the Services available on the Website;</li>
+                            <li>Facilitate the process of chartering;</li>
+                            <li>
+                                Improve the Service and to provide some analytics to the Users (e.g. cargo flow in port/ region,
+                                cost of transportation relevant to route, type of cargo and volume, available vessels or cargoes
+                                in each port/region);
+                            </li>
+                            <li>Send statements and payment reminders to You, and collect payments from You;</li>
+                            <li>Send You communications related to your account, payments and Open Positions;</li>
+                            <li>Send You non-marketing commercial communications;</li>
+                            <li>Send You marketing communications relating to Our businesses further specified in this Privacy Policy</li>
+                            <li>
+                                Provide third parties with statistical information about the Users of the Website (those third parties
+                                will not be able to identify any individual User from that information);
+                            </li>
+                            <li>Deal with enquiries and complaints made by or about You relating to the Website and the Service</li>
+                            <li>Keep the Website secure and prevent fraud;</li>
+                            <li>Verify compliance with the Terms of Service governing the use of the Website;</li>
+                        </ul>
+                        <br />
+                        <br />
+                            *@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

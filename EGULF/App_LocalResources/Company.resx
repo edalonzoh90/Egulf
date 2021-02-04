@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btn_cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="btn_del" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="btn_edit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="btn_invite" xml:space="preserve">
+    <value>Gerenciar colaboradores</value>
+  </data>
+  <data name="btn_new" xml:space="preserve">
+    <value>Nuevo</value>
+  </data>
+  <data name="btn_save" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="error_minlength_rfc" xml:space="preserve">
+    <value>La longitud minima debe ser 10</value>
+  </data>
+  <data name="error_name" xml:space="preserve">
+    <value>La compañía ya se encuentra registrada</value>
+  </data>
+  <data name="error_phone" xml:space="preserve">
+    <value>Utiliza el formato con lada, deben ser 10 dígitos</value>
+  </data>
+  <data name="error_unique_rfc" xml:space="preserve">
+    <value>El RFC ya se encuentra registrado</value>
+  </data>
+  <data name="title_create" xml:space="preserve">
+    <value>Registrar Compañía</value>
+  </data>
+  <data name="title_edit" xml:space="preserve">
+    <value>Editar Compañía</value>
+  </data>
+  <data name="title_index" xml:space="preserve">
+    <value>Mi Compañía</value>
+  </data>
+  <data name="txt_address" xml:space="preserve">
+    <value>Dirección</value>
+  </data>
+  <data name="txt_aviso" xml:space="preserve">
+    <value>Aviso!</value>
+  </data>
+  <data name="txt_col_date" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="txt_col_email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="txt_col_name" xml:space="preserve">
+    <value>Nombre fiscal</value>
+  </data>
+  <data name="txt_col_status" xml:space="preserve">
+    <value>Estatus</value>
+  </data>
+  <data name="txt_company_error_delete" xml:space="preserve">
+    <value>Error al eliminar la empresa</value>
+  </data>
+  <data name="txt_company_error_form" xml:space="preserve">
+    <value>Error de validación en el formulario</value>
+  </data>
+  <data name="txt_company_error_saved" xml:space="preserve">
+    <value>Error al registrar la compañía</value>
+  </data>
+  <data name="txt_company_error_updated" xml:space="preserve">
+    <value>Error al editar la compañía</value>
+  </data>
+  <data name="txt_company_saved" xml:space="preserve">
+    <value>Compañía registrada con éxito</value>
+  </data>
+  <data name="txt_company_updated" xml:space="preserve">
+    <value>Compañía actualizada con éxito</value>
+  </data>
+  <data name="txt_correcto" xml:space="preserve">
+    <value>Correcto!</value>
+  </data>
+  <data name="txt_email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="txt_empty" xml:space="preserve">
+    <value>No tienes empresa asignada</value>
+  </data>
+  <data name="txt_error_confirm" xml:space="preserve">
+    <value>No se pudo unir a la empresa</value>
+  </data>
+  <data name="txt_error_invite" xml:space="preserve">
+    <value>Se produjo un error al enviar las invitaciones</value>
+  </data>
+  <data name="txt_invitation_confirm" xml:space="preserve">
+    <value>La empresa &lt;b&gt;{0}&lt;/b&gt; te ha invitado a unirte como parte de sus colaboradores. ¿Deseas aceptar la invitación?</value>
+  </data>
+  <data name="txt_invitation_empty" xml:space="preserve">
+    <value>Debes seleccionar al menos un correo para invitar</value>
+  </data>
+  <data name="txt_invitation_has_company" xml:space="preserve">
+    <value>Los siguientes correos ya pertenecen a una compañia: {0}</value>
+  </data>
+  <data name="txt_invitation_title" xml:space="preserve">
+    <value>Invitar usuarios</value>
+  </data>
+  <data name="txt_mje_cancel_save" xml:space="preserve">
+    <value>¿Desea cancelar el registro de la compañía?</value>
+  </data>
+  <data name="txt_name" xml:space="preserve">
+    <value>Nombre fiscal</value>
+  </data>
+  <data name="txt_phone" xml:space="preserve">
+    <value>Teléfono</value>
+  </data>
+  <data name="txt_ph_invitate" xml:space="preserve">
+    <value>Email del usuario</value>
+  </data>
+  <data name="txt_rfc" xml:space="preserve">
+    <value>RFC</value>
+  </data>
+  <data name="txt_success_invite" xml:space="preserve">
+    <value>Se enviaron las invitaciones exitosamente</value>
+  </data>
+  <data name="txt_succes_del" xml:space="preserve">
+    <value>Eliminación exitosa</value>
+  </data>
+  <data name="txt_title_create" xml:space="preserve">
+    <value>Nueva Compañía</value>
+  </data>
+  <data name="txt_title_edit" xml:space="preserve">
+    <value>Edición de Compañía</value>
+  </data>
+  <data name="txt_company_has_invitation" xml:space="preserve">
+    <value>No se puede eliminar compañias con invitaciones, eliminelas para continuar</value>
+  </data>
+  <data name="txt_error_remove_invitation" xml:space="preserve">
+    <value>Error al remover la invitación</value>
+  </data>
+  <data name="txt_remove_invitation" xml:space="preserve">
+    <value>Se removera a este usuario de la empresas</value>
+  </data>
+  <data name="txt_remove_invitation_success" xml:space="preserve">
+    <value>Se removió el usuario exitosamente</value>
+  </data>
+  <data name="txt_company_has_vp" xml:space="preserve">
+    <value>No se puede eliminar la empresa, porque la compañía tiene barcos o proyectos creados</value>
+  </data>
+</root>

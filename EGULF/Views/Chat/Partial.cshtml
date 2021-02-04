@@ -1,0 +1,64 @@
+﻿<script src="~/Scripts/Views/Chat.js"></script>
+<style>    
+    .chat-date {
+        text-align:center
+    }
+</style>
+<script>
+    var lstMsg = @Html.Raw(Json.Encode(ViewBag.lstMsg));
+    var SessionPersonId = @ViewBag.SessionPersonId;
+    var From = @ViewBag.From;
+    var To = @ViewBag.To;
+    var ReferenceId = @ViewBag.ReferenceId;
+    var Alias = '@ViewBag.Alias';
+    var _Date = moment(new Date()).format("YYYYMMDD");
+    Base.call(Chat);
+
+    $(".chat-conversation").ready(function () {
+        //Chat.BlockUI("#sidebar");
+
+        let cont = 0;
+        for (var x = 0; x < lstMsg.length; x++) {
+            let nDate = moment(lstMsg[x].CreatedAt).format("YYYYMMDD");
+            if (_Date !== nDate) {
+                $("#msg0").clone().attr("id", nDate).removeAttr("style").addClass("chat-date").appendTo("#lst-msg");
+                $("#" + nDate).html('<span class="badge badge-info">' + moment(lstMsg[x].CreatedAt).format("DD-MMM-YYYY") + '</span>');
+                _Date = nDate;
+                cont++;
+            }
+            Chat.AddMsg(lstMsg[x]);
+            cont++;
+        }
+
+        setTimeout(function () {
+            var objDiv = document.getElementById("lst-msg");
+            objDiv.scrollTop = (cont * 90);
+            Chat.InitCreate();
+            Chat.UnblockUI("#sidebar");
+        }, 1000);
+    });
+</script>
+        <ul id="lst-msg" class="conversation-list" style="overflow-x: hidden; overflow-y:auto; margin-top:10px">
+            <li id="msg0" class="clearfix" style="display:none">
+                <div class="chat-avatar">
+                    <img src="">
+                    <i class="created-at">10:00</i>
+                </div>
+                <div class="conversation-text">
+                    <div class="ctext-wrap">
+                        <i class="name">John Deo</i>
+                        <p class="message">
+                            Hello!
+                        </p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="row" style="margin-top: 10px">
+            <div class="col-sm-9 chat-inputbar">
+                <input name="Message" id="Message" type="text" class="form-control chat-input">
+            </div>
+            <div class="col-sm-3 chat-send">
+                <input id="btnSend" type="button" class="btn btn-md btn-primary btn-block waves-effect waves-light" value="Enviar" />
+            </div>
+        </div>

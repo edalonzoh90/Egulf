@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGulf.Web", "EGULF\EGulf.Web.csproj", "{E5F9795B-396C-4FE9-88D1-D4B87F11C1B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Security", "Security\Security.csproj", "{3279CFDA-572C-489A-A192-8DA1E3FD7C12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGullf.Services", "EGullf.Services\EGullf.Services.csproj", "{4702C3A0-D384-4DA2-8A5B-1B71E60D7038}"
+EndProject
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Egulf.Reports", "Egulf.Reports\Egulf.Reports.rptproj", "{28F7E5DE-7B80-42CA-9F28-9A961CA9087A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		DebugLocal|Any CPU = DebugLocal|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5F9795B-396C-4FE9-88D1-D4B87F11C1B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5F9795B-396C-4FE9-88D1-D4B87F11C1B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5F9795B-396C-4FE9-88D1-D4B87F11C1B1}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5F9795B-396C-4FE9-88D1-D4B87F11C1B1}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
+		{E5F9795B-396C-4FE9-88D1-D4B87F11C1B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5F9795B-396C-4FE9-88D1-D4B87F11C1B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3279CFDA-572C-489A-A192-8DA1E3FD7C12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3279CFDA-572C-489A-A192-8DA1E3FD7C12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3279CFDA-572C-489A-A192-8DA1E3FD7C12}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{3279CFDA-572C-489A-A192-8DA1E3FD7C12}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
+		{3279CFDA-572C-489A-A192-8DA1E3FD7C12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3279CFDA-572C-489A-A192-8DA1E3FD7C12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4702C3A0-D384-4DA2-8A5B-1B71E60D7038}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4702C3A0-D384-4DA2-8A5B-1B71E60D7038}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4702C3A0-D384-4DA2-8A5B-1B71E60D7038}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{4702C3A0-D384-4DA2-8A5B-1B71E60D7038}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
+		{4702C3A0-D384-4DA2-8A5B-1B71E60D7038}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4702C3A0-D384-4DA2-8A5B-1B71E60D7038}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28F7E5DE-7B80-42CA-9F28-9A961CA9087A}.Debug|Any CPU.ActiveCfg = Debug
+		{28F7E5DE-7B80-42CA-9F28-9A961CA9087A}.Debug|Any CPU.Build.0 = Debug
+		{28F7E5DE-7B80-42CA-9F28-9A961CA9087A}.Debug|Any CPU.Deploy.0 = Debug
+		{28F7E5DE-7B80-42CA-9F28-9A961CA9087A}.DebugLocal|Any CPU.ActiveCfg = DebugLocal
+		{28F7E5DE-7B80-42CA-9F28-9A961CA9087A}.DebugLocal|Any CPU.Build.0 = DebugLocal
+		{28F7E5DE-7B80-42CA-9F28-9A961CA9087A}.DebugLocal|Any CPU.Deploy.0 = DebugLocal
+		{28F7E5DE-7B80-42CA-9F28-9A961CA9087A}.Release|Any CPU.ActiveCfg = Release
+		{28F7E5DE-7B80-42CA-9F28-9A961CA9087A}.Release|Any CPU.Build.0 = Release
+		{28F7E5DE-7B80-42CA-9F28-9A961CA9087A}.Release|Any CPU.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://danyelk6u5.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Security\\Security.csproj
+		SccProjectName1 = Security
+		SccLocalPath1 = Security
+		SccProjectUniqueName2 = EGullf.Services\\EGullf.Services.csproj
+		SccProjectName2 = EGullf.Services
+		SccLocalPath2 = EGullf.Services
+		SccProjectUniqueName3 = EGULF\\EGulf.Web.csproj
+		SccProjectName3 = EGULF
+		SccLocalPath3 = EGULF
+		SccProjectUniqueName4 = Egulf.Reports\\Egulf.Reports.rptproj
+		SccProjectName4 = Egulf.Reports
+		SccLocalPath4 = Egulf.Reports
+	EndGlobalSection
+EndGlobal

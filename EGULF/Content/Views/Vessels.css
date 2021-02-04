@@ -1,0 +1,22 @@
+﻿#s2id_Suitability {
+    padding: 0px 0px !important;
+}
+
+.s2id_autogen1{
+
+}
+
+.select2-choices {
+    width: 100%;
+    border: 1px solid #f3f3f3 !important;
+}
+
+.select2-container-multi .select2-choices .select2-search-field input {
+    padding: 0px 7px 0px 10px !important;
+}
+
+
+/*.select2-container-multi .select2-choices .select2-search-choice {
+    padding: 0px 7px 0px 18px !important;
+    margin: 2px 0 0px 5px !important;
+}*/

@@ -1,0 +1,224 @@
+﻿@using EGULF.Helpers
+@model EGullf.Services.Models.Management.UserPersonModel
+@using languageUI = EGULF.App_LocalResources.SingUp
+@using messagesUI = EGULF.App_LocalResources.MessageUI
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="~/Content/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/Content/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/Content/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/Content/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/Content/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/Content/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/Content/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/Content/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/Content/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/Content/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/Content/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/Content/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Content/favicon/favicon-16x16.png">
+    <link rel="manifest" href="~/Content/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="f~/Content/avicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="assets/images/favicon_1.ico">
+    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+    <link href="~/Content/plugins/bootstrap-sweetalert/sweet-alert.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Minton/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/Minton/assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/Minton/assets/css/style.css" rel="stylesheet" type="text/css">
+    <script>
+        Window.Key = '@SessionWeb.Key';
+        Window.Iv = '@SessionWeb.Iv';
+    </script>
+</head>
+
+<body cz-shortcut-listen="true" class="widescreen">
+    <div class="content">
+        <div class="container">
+            <!-- LOGO -->
+            <div class="">
+                <div class="page-title-box">
+                    <a href="@Url.Action("Index","Login")" class="logo">
+                        <img src="~/Content/Images/Isotipo2.png" width="80" alt="Alternate Text" /><div style="color: #4c5667;padding-left:13px; display:inline">
+                            @languageUI.HeaderCreateAccount
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <form id="SingUpForm" data-toggle="validator" role="form">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                        <div class="card-box">
+                            <h4 class="m-t-0 m-b-30 header-title">@languageUI.HeaderGeneralInformation</h4>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="mdi mdi-account"></i></span>
+                                    <input placeholder="@languageUI.PlaceholderFirstName" id="FirstName" class="form-control" type="text" required="required">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="mdi mdi-account"></i></span>
+                                    <input placeholder="@languageUI.PlaceholderLastName" id="LastName" class="form-control" type="text" required="required">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="mdi mdi-email"></i></span>
+                                    @Html.TextBoxFor(m => m.Email, new
+                               {
+                                   @class = "form-control",
+                                   @type = "email",
+                                   @id = "Email",
+                                   @placeholder = @languageUI.PlaceholderEmail,
+                                   @data_error = @languageUI.MsgWrongEmailFormat,
+                                   @data_remote = @Url.Content("~/SingUp/ValidateEmail"),
+                                   @data_remote_error = @languageUI.MsgEmailExisting,
+                                   @name = "Email",
+                                   @required = "required"
+                               })
+                                    @*<input
+                                placeholder="@languageUI.PlaceholderEmail"
+                                id="Email"
+                                class="form-control"
+                                 type="email"
+                                required="required"
+                                data-error="@languageUI.MsgWrongEmailFormat"
+                                data-remote="@Url.Content("~/SingUp/ValidateEmail")",
+                                data-remote-error="@languageUI.MsgEmailExisting">*@
+                                </div>
+                                <div class="help-block with-errors" style="color:red !important;"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="mdi mdi-phone"></i></span>
+                                    <input placeholder="@languageUI.PlaceholderTelefono" id="PhoneNumber" class="form-control" type="tel">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="mdi mdi-skype"></i></span>
+                                    <input placeholder="@languageUI.PlaceholderSkype" id="Skype" class="form-control" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                        <div class="card-box">
+                            <h4 class="m-t-0 m-b-30 header-title">@languageUI.HeaderUserInformation</h4>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="mdi mdi-account"></i></span>
+                                    @Html.TextBoxFor(m => m.Username, new
+                               {
+                                   @placeholder = languageUI.PlaceholderUsername,
+                                   @id = "Username",
+                                   @name = "Username",
+                                   @class = "form-control",
+                                   @type = "text",
+                                   @required = "required",
+                                   data_remote = @Url.Content("~/SingUp/ValidateUsername"),
+                                   data_remote_error = @languageUI.MsgUserExisting
+                               })
+                                    @*<input
+                                placeholder="@languageUI.PlaceholderUsername"
+                                id="Username"
+                                class="form-control"
+                                type="text"
+                                required="required">*@
+                                </div>
+                                <div class="help-block with-errors" style="color:red !important;"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="mdi mdi-key"></i></span>
+                                    <input placeholder="@languageUI.PlaceholderPassword" id="Password" class="form-control" type="password" required="required">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="mdi mdi-key"></i></span>
+                                    <input placeholder="@languageUI.PlaceholderRepeatPassword" id="RepeatPassword" data-match="#Password" class="form-control" type="password" required="required" data-error="@languageUI.MsgWrongPasswordConfirmation">
+                                </div>
+                                <div class="help-block with-errors" style="color:red !important;"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-8">
+                                        <div class="checkbox checkbox-primary">
+                                            <input id="checkbox-signup" type="checkbox" data-error="@languageUI.MsgWrongTermAndCondition" required>
+                                            <label for="checkbox-signup">
+                                                @languageUI.TextAgree <a href="@Url.Action("Index","TermCondition")" target="_blank">@languageUI.TextTermAndCondition</a>
+                                            </label>
+                                            <div class="help-block with-errors" style="color:red !important;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-s-12 col-md-4 text-right">
+                                        <button id="btnRegister" type="button" class="btn btn-icon btn-primary btn-block btn-custom waves-effect waves-light w-md">
+                                            <i class="fa fa-file-text-o"></i>
+                                            <span>@languageUI.BtnTextRegister</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row m-t-30">
+                                <div class="col-sm-12 text-center">
+                                    <a href="@Url.Action("Index","Login")" class="text-muted">@languageUI.TextHaveAccount <span class="text-primary">@languageUI.TextLogin</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+
+    </div>
+    </div>
+    <div id="EgulfLoader" style="display:none;">
+        <img src="@Url.Content("~/Content/Images/EgulfLoader.gif")" alt="@messagesUI.TextLoading" height="175" width="auto"/>
+    </div>
+
+    <script>
+        var urlCntrlSingUp = '@Url.Content("~/SingUp/SingUp/")';
+        var urlCntrlLogin = '@Url.Content("~/Login/index/")';
+        var BtnTextRegisterConfirmed = '@languageUI.BtnTextRegisterConfirmed';
+        var UIMessages = [
+            {"type":"success","subject":'@messagesUI.ToastSubjectSuccess',"message":'@messagesUI.MsgSuccess' },
+            {"type":"error","subject":'@messagesUI.ToastSubjectError',"message":'@messagesUI.MsgError'},
+            {"type":"warning","subject":'@messagesUI.ToastSubjectWarning',"message":''}
+        ];
+    </script>
+
+    <!-- Plugins  -->
+   <script src="~/Content/Minton/assets/js/jquery.min.js"></script>
+    <script src="~/Content/Minton/assets/js/jquery.core.js"></script>
+    <script src="~/Content/Minton/assets/js/modernizr.min.js"></script>   
+    <script src="~/Content/Minton/assets/js/popper.min.js"></script><!-- Popper for Bootstrap -->
+    <script src="~/Content/Minton/assets/js/bootstrap.min.js"></script>
+    <script src="~/Content/Minton/assets/js/detect.js"></script>
+    <script src="~/Content/Minton/assets/js/fastclick.js"></script>
+    <script src="~/Content/Minton/assets/js/jquery.blockUI.js"></script>
+    <script src="~/Content/Minton/assets/js/waves.js"></script>
+    <script src="~/Content/Minton/assets/js/wow.min.js"></script>
+
+    <!-- Notification js -->
+    <script src="~/Content/plugins/bootstrap-sweetalert/sweet-alert.js"></script>
+    <script src="~/Content/plugins/notifyjs/dist/notify.min.js"></script>
+    <script src="~/Content/plugins/notifications/notify-metro.js"></script>
+
+    <script src="~/Content/plugins/bootstrap-validator/validator.js"></script>
+
+    <!-- Custom main Js -->
+    <script src="~/Scripts/Security/aes.js"></script>
+    <script src="~/Scripts/Security/Crypto.js"></script>
+    <script src="~/Scripts/Views/Base.js"></script>
+    <script src="~/Scripts/Views/SingUpScript.js"></script>
+</body>
+</html>

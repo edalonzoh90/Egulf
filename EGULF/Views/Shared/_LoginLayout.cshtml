@@ -1,0 +1,88 @@
+﻿@using EGULF.Helpers
+<html lang="en" class="bg_login">
+<head>
+
+
+
+    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="EGulf">
+    <meta name="author" content="">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="~/Content/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/Content/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/Content/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/Content/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/Content/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/Content/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/Content/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/Content/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/Content/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/Content/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/Content/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/Content/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Content/favicon/favicon-16x16.png">
+    <link rel="manifest" href="~/Content/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="f~/Content/avicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>E-Gulf</title>
+
+    <link rel="stylesheet" href="~/Content/plugins/jquery.steps/css/jquery.steps.css" />
+    <link href="~/Content/plugins/switchery/switchery.min.css" rel="stylesheet" />
+    <link href="~/Content/plugins/jquery-circliful/css/jquery.circliful.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/plugins/bootstrap-sweetalert/sweet-alert.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/Content/plugins/morris/morris.css">
+    <link href="~/Content/Minton/assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
+    <link href="~/Content/plugins/multiselect/css/multi-select.css" rel="stylesheet" />
+    <link href="~/Content/plugins/select2/select2.css" rel="stylesheet" />
+    <link href="~/Content/Minton/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/Minton/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
+    <link href="~/Content/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="~/Content/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <script>
+        Window.Key = '@SessionWeb.Key';
+        Window.Iv = '@SessionWeb.Iv';
+    </script>
+</head>
+
+<body class="bg_login">
+
+    <div class="wrapper-page">
+        @RenderBody()
+    </div>
+    <div id="EgulfLoader" style="display:none;">
+        <img src="@Url.Content("~/Content/Images/EgulfLoader.gif")" height="175" width="auto" />
+    </div>
+
+    <!-- Plugins  -->
+    <script src="~/Content/Minton/assets/js/jquery.min.js"></script>
+    <script src="~/Content/Minton/assets/js/jquery.core.js"></script>
+    <script src="~/Content/Minton/assets/js/modernizr.min.js"></script>
+    <script src="~/Content/Minton/assets/js/popper.min.js"></script><!-- Popper for Bootstrap -->
+    <script src="~/Content/Minton/assets/js/bootstrap.min.js"></script>
+    <script src="~/Content/Minton/assets/js/detect.js"></script>
+    <script src="~/Content/Minton/assets/js/fastclick.js"></script>
+    <script src="~/Content/Minton/assets/js/jquery.blockUI.js"></script>
+    <script src="~/Content/Minton/assets/js/waves.js"></script>
+    <script src="~/Content/Minton/assets/js/wow.min.js"></script>
+
+    <!-- Notification js -->
+    <script src="~/Content/plugins/bootstrap-sweetalert/sweet-alert.js"></script>
+    <script src="~/Content/plugins/notifyjs/dist/notify.min.js"></script>
+    <script src="~/Content/plugins/notifications/notify-metro.js"></script>
+    <!-- Custom main Js -->
+    <script src="~/Content/plugins/bootstrap-validator/validator.js"></script>
+
+    <script src="~/Scripts/Security/aes.js"></script>
+    <script src="~/Scripts/Security/Crypto.js"></script>
+    <script src="~/Scripts/Views/Utils.js"></script>
+    <script src="~/Scripts/Views/Base.js"></script>
+    <script src="~/Scripts/Views/LoginScript.js"></script>
+</body>
+</html>

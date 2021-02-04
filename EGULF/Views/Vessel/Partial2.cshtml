@@ -1,0 +1,329 @@
+﻿@model EGullf.Services.Models.Operation.VesselSpecificInfoModel
+@using globalResource = EGULF.App_LocalResources.Main
+@using localResource = EGULF.App_LocalResources.Vessels
+<style>
+    .checkbox label {
+        font-size: 0.95rem !important;
+    }
+</style>
+
+@using (Html.BeginForm("Create", "Vessel", FormMethod.Post,
+                                          new { @id = "CreateVesselSpecificInfo", @role = "form", @data_toggle = "validator" }))
+{
+    @Html.HiddenFor(m => m.VesselId)
+    <div class="row">
+        <div class="col-md-12 col-lg-6 col-xl-6">
+            <div class="form-group">
+                @Html.Label(localResource.GrossTonnage, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.GrossTonnage, new
+           {
+               @class = "form-control",
+               @required = "",
+               @type = "number",
+               @min = "1",
+               @step = "0.01",
+           })
+                    <span class="input-group-addon bootstrap-touchspin-postfix">T</span>
+                    <button type="button" class="input-group-addon bg-primary b-0 text-white" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="@Html.Raw(localResource.GrossTonnageDescription)"> <i class="ion-information-circled"></i> </button>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 col-xl-6">
+            <div class="form-group">
+                @Html.Label(localResource.NetTonnage, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.NetTonnage, new
+           {
+               @class = "form-control",
+               @required = "",
+               @type = "number",
+               @min = "1",
+               @step = "0.01",
+           })
+                    <span class="input-group-addon bootstrap-touchspin-postfix">T</span>
+                    <button type="button" class="input-group-addon bg-primary b-0 text-white" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="@Html.Raw(localResource.NetTonnageDescription)"> <i class="ion-information-circled"></i></button>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 col-xl-6">
+            <div class="form-group">
+                @Html.Label(localResource.BeamOverall, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.BeamOverall, new
+           {
+               @class = "form-control",
+               @required = "",
+               @type = "number",
+               @min = "1",
+               @step = "0.01",
+           })
+                    <span class="input-group-addon bootstrap-touchspin-postfix">m</span>
+                    <button type="button" class="input-group-addon bg-primary b-0 text-white" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="@Html.Raw(localResource.BeamOverallDescription)"> <i class="ion-information-circled"></i> </button>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 col-xl-6">
+            <div class="form-group">
+                @Html.Label(localResource.LengthOverall, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.LengthOverall, new
+           {
+               @class = "form-control",
+               @required = "",
+               @type = "number",
+               @min = "1",
+               @step = "0.01",
+           })
+                    <span class="input-group-addon bootstrap-touchspin-postfix">m</span>
+                    <button type="button" class="input-group-addon bg-primary b-0 text-white" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="@Html.Raw(localResource.LengthOverallDescription)"> <i class="ion-information-circled"></i></button>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 col-xl-6">
+            <div class="form-group">
+                @Html.Label(localResource.MaximumLoadedDraft, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.MaximumLoadedDraft, new
+           {
+               @class = "form-control",
+               @type = "number",
+               @min = "1",
+               @step = "0.01",
+           })
+                    <span class="input-group-addon bootstrap-touchspin-postfix">m</span>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 col-xl-6">
+            <div class="form-group">
+                @Html.Label(localResource.FreeDeckArea, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.FreeDeckArea, new
+           {
+               @class = "form-control",
+               @type = "number",
+               @min = "1",
+               @step = "0.01",
+           })
+                    <span class="input-group-addon bootstrap-touchspin-postfix">m&sup2;</span>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 col-xl-6">
+            <div class="form-group">
+                @Html.Label(localResource.DeckStrenght, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.DeckStrenght, new { @class = "form-control", @type = "number", @min = "1", @step = "0.01" })
+                    <span class="input-group-addon bootstrap-touchspin-postfix">T/m&sup2;</span>
+                    <button type="button" class="input-group-addon bg-primary b-0 text-white" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="@Html.Raw(localResource.DeckStrenghtDescription)"> <i class="ion-information-circled"></i> </button>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 col-xl-6">
+            <div class="form-group">
+                @Html.Label(localResource.FreshWaterCapacity, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.FreshWaterCapacity, new { @class = "form-control", @type = "number", @min = "1", @step = "0.01" })
+                    <span class="input-group-addon bootstrap-touchspin-postfix">m&sup3;</span>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 col-xl-6">
+            <div class="form-group">
+                @Html.Label(localResource.FuelOilCapacity, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.FuelOilCapacity, new { @class = "form-control", @type = "number", @min = "1", @step = "0.01" })
+                    <span class="input-group-addon bootstrap-touchspin-postfix">m&sup3;</span>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 col-xl-6">
+            <div class="form-group">
+                @Html.Label(localResource.BallastWaterCapacity, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.BallastWaterCapacity, new { @class = "form-control", @type = "number", @min = "1", @step = "0.01" })
+                    <span class="input-group-addon bootstrap-touchspin-postfix">m&sup3;</span>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 col-xl-6">
+            <div class="form-group">
+                @Html.Label(localResource.MudCapacity, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.MudCapacity, new { @class = "form-control", @type = "number", @min = "1", @step = "0.01" })
+                    <span class="input-group-addon bootstrap-touchspin-postfix">m&sup3;</span>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 col-xl-6">
+            <div class="form-group">
+                @Html.Label(localResource.CementTanksCapacity, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.CementTanksCapacity, new { @class = "form-control", @type = "number", @step = "0.01", @min = "1" })
+                    <span class="input-group-addon bootstrap-touchspin-postfix">m&sup3;</span>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 col-xl-6">
+            <div class="form-group">
+                @Html.Label(localResource.OilRecoveryCapacity, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.OilRecoveryCapacity, new { @class = "form-control", @type = "number", @step = "0.01", @min = "1" })
+                    <span class="input-group-addon bootstrap-touchspin-postfix">m&sup3;</span>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 col-xl-6">
+            <div class="form-group">
+                @Html.Label(localResource.WaterMarkerPlant, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.WaterMarkerPlant, new { @class = "form-control", @type = "number", @step = "0.01", @min = "1" })
+                    <span class="input-group-addon bootstrap-touchspin-postfix">T/día</span>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 col-xl-6">
+            <div class="form-group">
+                @Html.Label(localResource.HotWaterCalorifier, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.HotWaterCalorifier, new { @class = "form-control", @type = "number", @step = "0.01", @min = "1" })
+                    <span class="input-group-addon bootstrap-touchspin-postfix">l</span>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 col-xl-6">
+            <div class="form-group">
+                @Html.Label(localResource.SewageTreatmentPlant, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.SewageTreatmentPlant, new { @class = "form-control", @type = "number", @step = "0.01", @min = "1" })
+                    <span class="input-group-addon bootstrap-touchspin-postfix">l</span>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 col-xl-6">
+            <div class="form-group">
+                @Html.Label(localResource.CruisingSpeed, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.CruisingSpeed, new { @class = "form-control", @type = "number", @step = "0.01", @min = "1" })
+                    <span class="input-group-addon bootstrap-touchspin-postfix">Kts</span>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 col-xl-6">
+            <div class="form-group">
+                @Html.Label(localResource.MaximumSpeed, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.MaximumSpeed, new
+           {
+               @class = "form-control",
+               @type = "number",
+               @step = "0.01",
+               @min = "1",
+           })
+                    <span class="input-group-addon bootstrap-touchspin-postfix">Kts</span>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 col-xl-6">
+            <div class="form-group">
+                @Html.Label(localResource.DistanceCruisingSpeed, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.DistanceCruisingSpeed, new
+           {
+               @class = "form-control",
+               @type = "number",
+               @step = "0.01",
+               @min = "1",
+           })
+                    <span class="input-group-addon bootstrap-touchspin-postfix">día</span>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 col-xl-6">
+            <div class="form-group">
+                @Html.Label(localResource.DistanceMaxSpeed, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.DistanceMaxSpeed, new
+           {
+               @class = "form-control",
+               @type = "number",
+               @min = "1",
+               @step = "0.01",
+           })
+                    <span class="input-group-addon bootstrap-touchspin-postfix">día</span>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 col-xl-6">
+            <div class="form-group">
+                @Html.Label(localResource.FuelConsumptionCruisingSpeed, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.FuelConsumptionCruisingSpeed, new
+           {
+               @class = "form-control",
+               @type = "number",
+               @step = "0.01",
+               @min = "1",
+           })
+                    <span class="input-group-addon bootstrap-touchspin-postfix">m&sup3;</span>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 col-xl-6">
+            <div class="form-group">
+                @Html.Label(localResource.FuelConsumptionMaxSpeed, new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.FuelConsumptionMaxSpeed, new
+           {
+               @class = "form-control",
+               @type = "number",
+               @step = "0.01",
+               @min = "1",
+           })
+                    <span class="input-group-addon bootstrap-touchspin-postfix">m&sup3;</span>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-12 col-xl-12">
+            <div class="form-group">
+                @Html.Label(localResource.DynamicPositionSystem, new { @class = "control-label" })
+                <div class="input-group">
+                    @{
+                        List<SelectListItem> lst = new List<SelectListItem>();
+                        lst.Add(new SelectListItem() { Value = "Convencional", Text = globalResource.Select });
+                        lst.Add(new SelectListItem() { Value = "1", Text = "DP1" });
+                        lst.Add(new SelectListItem() { Value = "2", Text = "DP2" });
+                        lst.Add(new SelectListItem() { Value = "3", Text = "DP3" });
+                        SelectList LstDynamicPositionSystem = new SelectList(lst);
+                    }
+                    @Html.DropDownListFor(m => m.DynamicPositionSystem, new SelectList(lst, "Value", "Text"),
+                                    new { @class = "form-control" })
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+    </div>
+                        }

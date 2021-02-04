@@ -1,0 +1,71 @@
+﻿@model EGullf.Services.Models.Operation.ProjectModel
+@using projectLanguageUI = EGULF.App_LocalResources.Project
+@using messageLanguageUI = EGULF.App_LocalResources.MessageUI
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">@projectLanguageUI.PagerTitle</h4>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+        <div class="card-box" id="EmptySection">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex justify-content-center position-fixed"><img src="/Content/Images/empty.svg" alt="profile-image"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-box" id="MainSection">
+            <div class="row grid">
+
+
+                @*<button onclick="window.location.href='@Url.Action("create","project")'" type="button" id="btnAddNewProject" class="btn btn-primary btn-icon btn-sm waves-effect waves-light" value="">
+                <i class="fa fa-plus-square"></i>
+                <span>@messageLanguageUI.ButtonTextAddNew</span>
+            </button>*@
+
+                @*<button onclick="window.location.href='@Url.Action("AgreementReport","project")'" type="button"  class="btn btn-primary btn-icon btn-sm waves-effect waves-light" value="">
+                <i class="fa fa-pencil"></i>
+                <span>PRUEBA</span>
+            </button>*@
+                <br />
+                <table id="gridProjects" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>@projectLanguageUI.TableHeaderStatus</th>
+                            <th>@projectLanguageUI.TableHeaderId</th>                        
+                            <th>@projectLanguageUI.TableHeaderCategory</th>
+                            <th>@projectLanguageUI.TableHeaderStartDate</th>
+                            <th>@projectLanguageUI.TableHeaderDuration</th>
+                            <th>@projectLanguageUI.TableHeaderActions</th>
+                        </tr>
+                    </thead>
+                    <tbody style="font-size: 14px;"></tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    var _UrlCntrl = '@Url.Content("~/Project/")';
+    var _UrlCntrlEdit = '@Url.Action("create","project",new { id="ID"})';
+    var _UrlCntrlManage = '@Url.Action("manage","project", new { id = "ID"})';
+    var _UrlCntrlDelete = '@Url.Action("delete","project", new { id = "ID" })';
+    var _CompanyId = @ViewBag.CompanyId;
+    var _EmptySubject = '@projectLanguageUI.EmptySubject';
+    var _EmptyMessage = '@projectLanguageUI.EmptyMessage';
+</script>
+<script src="~/Scripts/Views/ProjectScript.js"></script>

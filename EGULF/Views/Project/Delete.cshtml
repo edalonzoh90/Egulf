@@ -1,0 +1,62 @@
+﻿@model EGullf.Services.Models.Operation.ProjectModel
+@using projectLanguageUI = EGULF.App_LocalResources.Project
+@using messageLanguageUI = EGULF.App_LocalResources.MessageUI
+
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    var EmptyList = new SelectList(string.Empty);
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">@projectLanguageUI.PagerTitle</h4>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-md-center">
+    <div class="col-xl-10 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card-box" id="">
+            <h4 class="m-t-20 header-title">
+                <b>@projectLanguageUI.DeleteProjectTitle</b>
+            </h4>
+            <p>@projectLanguageUI.DeleteProjectInstructions</p>
+            @*@using (Html.BeginForm("DeleteProject", "Project",new { ProjectId = ViewBag.ProjectId }, FormMethod.Post, new { @id = "DeleteProjectForm", @class = "form-row", @data_toggle = "validator" }))
+            {*@
+            <form id="DeleteProjectForm" class="form-row" data-toggle="validator">
+                <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    @Html.TextAreaFor(m => m.CancelationComment, new
+               {
+                   @id = "CancelationComment",
+                   @class = "form-control",
+                   @name = "CancelarionComment",
+                   @placeholder = "",
+                   @required = "required",
+                   @rows = 8,
+                   @data_parsley_id = 50
+               })
+                </div>
+                <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-right">
+                    <button type="button" onclick="javascript: DeleteProject.Delete();" id="btnDeleteProject" class="btn btn-primary waves-effect waves-light" value="">@messageLanguageUI.ButtonTextSave</button>
+                </div>
+                @*}*@
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    var _UIMessages = [
+       {"type":"success","subject":'@messageLanguageUI.ToastSubjectSuccess',"message":'@messageLanguageUI.MsgSuccess' },
+       {"type":"error","subject":'@messageLanguageUI.ToastSubjectError',"message":'@messageLanguageUI.MsgError'}
+    ];
+    var _DeleteProjectTextConfirm = '@Html.Raw(projectLanguageUI.DeleteProjectTextConfirm)';
+    var _DeleteProjectTitleConfirm = '@Html.Raw(messageLanguageUI.SweetConfirmation)';
+
+    var _ProjectId = @ViewBag.ProjectId;
+    var _UrlBase = '@Url.Content("~/Project/")';
+    var _UrlDeleteProject = '@Url.Content("~/Project/DeleteProject")';
+</script>
+<script src="~/Scripts/Views/ProjectDeleteScript.js"></script>

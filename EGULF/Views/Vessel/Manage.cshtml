@@ -1,0 +1,177 @@
+﻿@model EGULF.Models.VesselAvailabilityViewModel
+@using globalResource = EGULF.App_LocalResources.Main
+@using localResource = EGULF.App_LocalResources.Vessels
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">
+                @Html.Raw(localResource.ManageVessel)
+            </h4>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<div class="row justify-content-md-center">
+    <div class="col-xl-10 col-lg-12 col-md-12 col-xs-12">
+        <div class="card-box">
+            <div class="row">
+                <div class="col-sm-12">
+                    <button id="btnAdd" type="button" class="btn btn-primary btn-rounded w-md waves-effect waves-light" data-toggle="modal" data-target="#availability-modal">@Html.Raw(localResource.Events)</button>
+                    <button id="btnStatus" type="button" class="btn btn-success btn-rounded w-md waves-effect waves-light" data-toggle="modal" data-target="#status-modal">@Html.Raw(localResource.Status)</button>
+                    <div class="timeline">
+                        <script id="tmpyear" type="text/x-handlebars-template">
+                            <article class="timeline-item alt">
+                                <div class="text-right">
+                                    <div class="time-show first">
+                                        <a href="#" class="btn btn-primary w-lg">{{year}}</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="availability-modal" class="modal fade" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Disponibilidad</h4>
+            </div>
+            @using (Html.BeginForm("Create", "Vessel", FormMethod.Post,
+              new { @id = "VesselManage", @role = "form", @data_toggle = "validator" }))
+            {
+                @Html.HiddenFor(m => m.AvailabilityVesselId, new { @required = "" })
+                @Html.HiddenFor(m => m.VesselId, new { @required = "" })
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="field-1" class="control-label">@Html.Raw(localResource.StartDate)</label>
+                                @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control", @type = "date", @required = "" })
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="field-2" class="control-label">@Html.Raw(localResource.EndDate)</label>
+                                @Html.TextBoxFor(m => m.EndDate, new { @class = "form-control", @type = "date", @required = "" })
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">@Html.Raw(localResource.Event)</label>
+                                @Html.DropDownListFor(m => m.ReasonId, new SelectList(ViewBag.LstReason, "Value", "Text"), new { @class = "form-control", @required = "" })
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">@Html.Raw(localResource.Description)</label>
+                                @Html.TextAreaFor(m => m.ReasonDescription, new { @class = "form-control", @max = "500" })
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="btnMngSave" type="button" class="btn btn-info waves-effect waves-light">@Html.Raw(globalResource.Save)</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div id="status-modal" class="modal fade" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">@Html.Raw(localResource.Status)</h4>
+            </div>
+            @using (Html.BeginForm("Create", "Vessel", FormMethod.Post,
+              new { @id = "VesselEstatus", @role = "form", @data_toggle = "validator" }))
+            {
+                @Html.HiddenFor(m => m.VesselId, new { @required = "" })
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="field-1" class="control-label">@Html.Raw(localResource.Status)</label>
+                                @Html.DropDownListFor(m=>m.VesselEstatusId, new SelectList(ViewBag.LstEstatus, "Value", "Text"), new { @class = "form-control", @required = "" })
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="btnStatusSave" type="button" class="btn btn-info waves-effect waves-light">@Html.Raw(globalResource.Save)</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script id="tmpevent" type="text/x-handlebars-template">
+    <form id="form{{eventid}}">
+        <input type="hidden" name="AvailabilityVesselId" value="{{AvailabilityVesselId}}" />
+        <input type="hidden" name="VesselId" value="{{VesselId}}" />
+        <input type="hidden" name="ReasonId" value="{{ReasonId}}" />
+        <input type="hidden" name="ReasonDescription" value="{{ReasonDescription}}" />
+        <input type="hidden" name="StartDate" value="{{StartDate}}" />
+        <input type="hidden" name="EndDate" value="{{EndDate}}" />
+    </form>
+    <article class="timeline-item {{alt}}" id="{{eventid}}">
+        <div class="timeline-desk">
+            <div class="panel">
+                <div class="panel-body">
+                    <span class="arrow"></span>
+                    <span class="timeline-icon"></span>
+                    <h4 class="text-primary">{{event}}</h4>
+                    <p class="timeline-date text-muted"><small>{{day}}</small></p>
+                    <p>{{reason}}</p>
+                    <div style="min-height:25px">
+                        <div class="album" style="display:none; padding: 0px !important; margin: 0px !important">
+                            <a title="@Html.Raw(globalResource.Edit)" href="javascript:VesselManage.ValidateTransaction('EDIT', {{id}})" class="btnEdit badge badge-warning ml-1"><i class="fa fa-pencil"></i></a>
+                            <a title="@Html.Raw(globalResource.Delete)" href="javascript:VesselManage.ValidateTransaction('DEL', {{id}})" class="btnDelete badge badge-danger ml-1"><i class="fa fa-trash"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</script>
+
+<script src="~/Content/plugins/handlebars/handlebars.min.js"></script>
+<script src="~/Scripts/Views/VesselManage.js"></script>
+<script>
+    $(document).ready(function () {
+        Base.call(VesselManage);
+
+        VesselManage.vars.model = @Html.Raw(Json.Encode(Model));
+        VesselManage.vars.tags= {
+            OK: '@Html.Raw(globalResource.OK)',
+            Saved: '@Html.Raw(globalResource.Saved)',
+            SomethingWrong: '@Html.Raw(globalResource.SomethingWrong)',
+            Warning: '@Html.Raw(globalResource.Warning)',
+            ErrorForm: '@Html.Raw(globalResource.ErrorForm)',
+        },
+
+        VesselManage.Init();
+
+    });
+</script>

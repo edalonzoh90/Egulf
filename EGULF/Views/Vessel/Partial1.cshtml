@@ -1,0 +1,143 @@
+﻿@using localResource = EGULF.App_LocalResources.Vessels
+@model EGullf.Services.Models.Operation.VesselModel
+
+@using (Html.BeginForm("Create", "Vessel", FormMethod.Post,
+                              new { @id = "CreateVessel", @role = "form", @data_toggle = "validator" }))
+{
+    @Html.HiddenFor(m => m.VesselId)
+<div class="row">
+    <div class="col-md-12 col-lg-12 col-xl-12">
+        <div class="form-group">
+            @Html.Label(localResource.Name, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Name,
+                new { @class = "form-control",
+                    @required = "",
+                    @maxlength = 100,
+                    @data_remote = @Url.Content("/vessel/valid/name?VesselId=" + Model.VesselId),
+                    @data_remote_error = Html.Raw(localResource.RepeatedName),
+                })
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
+    <div class="col-md-12 col-lg-6 col-xl-6">
+        <div class="form-group">
+            @Html.Label(localResource.Imo, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Imo,
+                new { @class = "form-control",
+                    @data_mask="9999999",
+                    @required = "",
+                    @pattern = "[0-9]{7}",
+                    @data_pattern_error = Html.Raw(localResource.InvalidIMO),
+                    @data_remote = @Url.Content("/vessel/valid/imo?VesselId=" + Model.VesselId),
+                    @data_remote_error = Html.Raw(localResource.RepeatedIMO),
+                })
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
+    <div class="col-md-12 col-lg-6 col-xl-6">
+        <div class="form-group">
+            @Html.Label(localResource.YearBuild, new { @class = "control-label" })
+            <div class="input-group">
+                @Html.TextBoxFor(m => m.YearBuild,
+                    new { @class = "form-control", @required = "", @type="number", @min="1900", @max="9999" })
+                <button type="button" class="input-group-addon bg-primary b-0 text-white" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="@Html.Raw(localResource.YearBuildDescription)"><i class="ion-information-circled"></i></button>
+            </div>
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
+    <div class="col-md-12 col-lg-12 col-xl-12">
+        <div class="form-group">
+            @Html.Label(localResource.Class, new { @class = "control-label" })
+            <div class="input-group">
+                @Html.DropDownListFor(m => m.ClasificationSociety.ClasificationSocietyId, new SelectList(ViewBag.LstClasificationSociety, "Value", "Text"),
+                    new { @class = "form-control", @required = "" })
+                <button type="button" class="input-group-addon bg-primary b-0 text-white" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="@Html.Raw(localResource.ClassDescription)"> <i class="ion-information-circled"></i></button>
+            </div>
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
+    <div class="col-md-12 col-lg-6 col-xl-6">
+        <div class="form-group">
+            @Html.Label(localResource.ClassNotation, new { @class = "control-label" })
+            <div class="input-group">
+                @Html.TextBoxFor(m => m.ClassNotation,
+                    new { @class = "form-control", @required = "", @maxlength = 50 })
+                <button type="button" class="input-group-addon bg-primary b-0 text-white" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="@Html.Raw(localResource.ClassNotationDescription)"> <i class="ion-information-circled"></i></button>
+            </div>
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
+    <div class="col-md-12 col-lg-6 col-xl-6">
+        <div class="form-group">
+            @Html.Label(localResource.ClassValidity, new { @class = "control-label" })
+            <div class="input-group">
+                @Html.TextBoxFor(m => m.ClassValidity,
+                    new { @class = "form-control", @required = "", @type="date" })
+                <button type="button" class="input-group-addon bg-primary b-0 text-white" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="@Html.Raw(localResource.ClassValidityDescription)"> <i class="ion-information-circled"></i></button>
+            </div>
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-lg-6 col-xl-6">
+        <div class="form-group">
+            @Html.Label(localResource.Country, new { @class = "control-label" })
+            <div class="input-group">
+                @Html.DropDownListFor(m => m.Country.CountryId, new SelectList(ViewBag.LstCountry, "Value", "Text"),
+                    new { @class = "form-control", @required="" })
+                <button type="button" class="input-group-addon bg-primary b-0 text-white" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="@Html.Raw(localResource.CountryDescription)"> <i class="ion-information-circled"></i></button>
+            </div>
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
+    <div class="col-md-12 col-lg-6 col-xl-6">
+        <div class="form-group">
+            @Html.Label(localResource.Port, new { @class = "control-label" })
+            <div class="input-group">
+                @Html.DropDownListFor(m => m.HomePort.PortId, new SelectList(ViewBag.LstPort, "Value", "Text"),
+                    new { @class = "form-control", @required = "" })
+                <button type="button" class="input-group-addon bg-primary b-0 text-white" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="@Html.Raw(localResource.PortDescription)"> <i class="ion-information-circled"></i></button>
+            </div>
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
+    <div class="col-md-12 col-lg-12 col-xl-12">
+        <div class="form-group">
+            @Html.Label(localResource.VesselType, new { @class = "control-label" })
+            <div class="input-group">
+                @Html.DropDownListFor(m => m.VesselType.VesselTypeId, new SelectList(ViewBag.LstVesselType, "Value", "Text"),
+                    new { @class = "form-control", @required = "" })
+                <button type="button" class="input-group-addon bg-primary b-0 text-white" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="@Html.Raw(localResource.VesselTypeDescription)"> <i class="ion-information-circled"></i></button>
+            </div>
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-lg-12 col-xl-12">
+        <div class="form-group">
+            @Html.Label(localResource.Suitability, new { @class = "control-label" })
+            <div class="input-group">
+                @Html.DropDownList("Suitability", new SelectList(ViewBag.LstProjectType, "Value", "Text"),
+                    new { @class = "form-control select2-multiple", @required = "", @multiple = "multiple"  })
+                <button type="button" class="input-group-addon bg-primary b-0 text-white" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="@Html.Raw(localResource.SuitabilityDescription)"> <i class="ion-information-circled"></i></button>
+            </div>
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
+
+    <div class="col-md-2 col-lg-4 col-xl-4"></div>
+    <div class="col-md-8 col-lg-4 col-xl-4">
+        <div class="form-group">
+            <div class="thumb-xl member-thumb m-b-10 center-block">
+                <img src="/Vessel/GetImage?VesselId=@Model.VesselId" id="image" class="rounded-circle img-thumbnail" height="auto" width="100%">
+            </div>
+            <div id="imageOptions" class="text-center">
+                <div class="fileupload btn btn-sm btn-icon waves-effect btn-primary">
+                    <span><i class="fa fa-upload"></i></span>
+                    <input type="file" class="upload" id="fileImage" accept=".jpg, .png">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}

@@ -1,0 +1,443 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4702C3A0-D384-4DA2-8A5B-1B71E60D7038}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EGullf.Services</RootNamespace>
+    <AssemblyName>EGullf.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Storage.Blob, Version=9.4.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Storage.Blob.9.4.2\lib\net452\Microsoft.Azure.Storage.Blob.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Storage.Common, Version=9.4.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Storage.Common.9.4.2\lib\net452\Microsoft.Azure.Storage.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.WebForms.10.0.40219.1\lib\Microsoft.ReportViewer.WebForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.6.7.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.6.7\lib\net452\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DA\Alert\AlertDA.cs" />
+    <Compile Include="DA\Alert\AlertTemplateDA.cs" />
+    <Compile Include="DA\AzureStorage\FileReferenceDA.cs" />
+    <Compile Include="DA\ClasificationSociety.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\Configuration\EmailTemplateDA.cs" />
+    <Compile Include="DA\Country.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\CustomTemplate.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\CustomTemplateSection.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\EGulfModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EGulfModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\EGulfModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\EGulfModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EGulfModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DA\EmailTemplate.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\Example\NotificationDA.cs" />
+    <Compile Include="DA\Management\ClasificationSocietyDA.cs" />
+    <Compile Include="DA\Management\CompanyDA.cs" />
+    <Compile Include="DA\Management\CountryDA.cs" />
+    <Compile Include="DA\Management\InvitationCompanyDA.cs" />
+    <Compile Include="DA\Management\PersonDA.cs" />
+    <Compile Include="DA\Management\PortDA.cs" />
+    <Compile Include="DA\Management\ProjectTypeDA.cs" />
+    <Compile Include="DA\Management\ReasonAvailabilityDA.cs" />
+    <Compile Include="DA\Management\RegionDA.cs" />
+    <Compile Include="DA\Management\VesselAvailabilityDA.cs" />
+    <Compile Include="DA\Management\VesselTypeDA.cs" />
+    <Compile Include="DA\Operation\CabinSpecificationDA.cs" />
+    <Compile Include="DA\Operation\MessageDA.cs" />
+    <Compile Include="DA\Operation\OfferDA.cs" />
+    <Compile Include="DA\Operation\ProjectDA.cs" />
+    <Compile Include="DA\Operation\SpecificInformationDA.cs" />
+    <Compile Include="DA\Operation\VesselDA.cs" />
+    <Compile Include="DA\Port.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\ProjectType.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\ReasonAvailability.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\Region.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\RegionCoordinates.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\Reports\ReportDA.cs" />
+    <Compile Include="DA\sp_DelAvailabilityVessel_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_delCompanyInvitationPerson_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_delCompanyInvitation_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_delCompanyPerson_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_DelFileByReference_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_DelProject_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_getCustomTemplateSections_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_InsUpdAlert_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_InsUpdAvailabilityVessel_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_InsUpdCabinSpecification_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_InsUpdCompanyInvitation_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_InsUpdCompany_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_InsUpdFileReference_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_InsUpdFinishProject_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_InsUpdMessage_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_InsUpdNotification_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_InsUpdOfferCost_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_InsUpdOffer_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_insUpdPerson_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_InsUpdProject_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_InsUpdSpecificInfo_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_insUpdUser_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_InsUpdVesselCost_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_InsUpdVesselSpecificInfo_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_InsUpdVessel_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_RptAgreement_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_SelAlertTemplateById_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_SelAvailabilityVesselById_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_SelCabinSpecification_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_SelCompany_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_SelFileByReference_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_SelInvitationsByCompanyId_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_SelOffer_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_SelPagAlert_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_SelPagCompany_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_SelPagMessage_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_SelPagNotification_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_SelPagOffer_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_SelPagProject_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_SelPagVessel_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_SelProjectSuitability_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_SelProject_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_SelRoleByUser_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_SelSpecificInfo_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_SelSuitability_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_selUserPerson_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_SelVesselCost_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_SelVesselMatchedAvailable_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_SelVesselSpecificInfo_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_UpdMessageAsReaded_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_UpdOfferCancelOthers_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_UpdStatus_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\sp_ValVessel_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\st_SelPagNotification_Result.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\SystemVariable.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DA\VesselType.cs">
+      <DependentUpon>EGulfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Alert\AlertModel.cs" />
+    <Compile Include="Models\Alert\AlertTemplateModel.cs" />
+    <Compile Include="Models\AzureStorage\FileReferenceModel.cs" />
+    <Compile Include="Models\Configuration\AuditModel.cs" />
+    <Compile Include="Models\Configuration\DatatableModel.cs" />
+    <Compile Include="Models\Configuration\PagerModel.cs" />
+    <Compile Include="Models\Configuration\SelectModel.cs" />
+    <Compile Include="Models\Example\NotificationModel.cs" />
+    <Compile Include="Models\Mail\ITemplate.cs" />
+    <Compile Include="Models\Mail\MailEgulf.cs" />
+    <Compile Include="Models\Mail\IMail.cs" />
+    <Compile Include="Models\Mail\MailModel.cs" />
+    <Compile Include="Models\Configuration\EmailTemplateModel.cs" />
+    <Compile Include="Models\Configuration\VariableModel.cs" />
+    <Compile Include="Models\Mail\TemplateMessagesFactory.cs" />
+    <Compile Include="Models\Mail\TemplateOldFactory.cs" />
+    <Compile Include="Models\Mail\WelcomeMail.cs" />
+    <Compile Include="Models\Management\ReasonAvailabilityModel.cs" />
+    <Compile Include="Models\Management\VesselAvailabilityModel.cs" />
+    <Compile Include="Models\Management\ClasificationSocietyModel.cs" />
+    <Compile Include="Models\Management\CompanyModel.cs" />
+    <Compile Include="Models\Management\CountryModel.cs" />
+    <Compile Include="Models\Management\InvitationCompanyModel.cs" />
+    <Compile Include="Models\Management\PersonModel.cs" />
+    <Compile Include="Models\Management\PortModel.cs" />
+    <Compile Include="Models\Management\ProjectTypeModel.cs" />
+    <Compile Include="Models\Management\RegionModel.cs" />
+    <Compile Include="Models\Management\VesselTypeModel.cs" />
+    <Compile Include="Models\Operation\CabinSpecificationModel.cs" />
+    <Compile Include="Models\Operation\IMatchDA.cs" />
+    <Compile Include="Models\Operation\IMatchable.cs" />
+    <Compile Include="Models\Operation\MatchModel.cs" />
+    <Compile Include="DA\Operation\MatchProjectDA.cs" />
+    <Compile Include="Models\Operation\MessageModel.cs" />
+    <Compile Include="Models\Operation\OfferCostModel.cs" />
+    <Compile Include="Models\Operation\OfferModel.cs" />
+    <Compile Include="Models\Operation\ProjectModel.cs" />
+    <Compile Include="Models\Operation\SpecificInformationModel.cs" />
+    <Compile Include="Models\Operation\VesselModel.cs" />
+    <Compile Include="Models\Reports\ReportModel.cs" />
+    <Compile Include="Models\UI\Message.cs" />
+    <Compile Include="Models\Utils\ExtensionsShapes.cs" />
+    <Compile Include="Models\Utils\LineSegment.cs" />
+    <Compile Include="Models\Utils\RegionPolygon.cs" />
+    <Compile Include="Models\Utils\RegionShape.cs" />
+    <Compile Include="Models\Utils\UtilsModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DA\Configuration\SystemVariableDA.cs" />
+    <Compile Include="Models\AzureStorage\FileModel.cs" />
+    <Compile Include="Services\Alert\AlertServices.cs" />
+    <Compile Include="Services\Alert\AlertTemplateServices.cs" />
+    <Compile Include="Services\AzureStorage\FileServices.cs" />
+    <Compile Include="Services\Configuration\EmailTemplateServices.cs" />
+    <Compile Include="Services\Configuration\SystemVariableServices.cs" />
+    <Compile Include="Services\Example\NotificationServices.cs" />
+    <Compile Include="Services\Images\ImagesServices.cs" />
+    <Compile Include="Services\Mail\MailServices.cs" />
+    <Compile Include="Services\Management\ClasificationSocietyServices.cs" />
+    <Compile Include="Services\Management\CompanyServices.cs" />
+    <Compile Include="Services\Management\CountryServices.cs" />
+    <Compile Include="Services\Management\InvitationCompanyServices.cs" />
+    <Compile Include="Services\Management\SupportServices.cs" />
+    <Compile Include="Services\Operation\MatchFactory.cs" />
+    <Compile Include="Services\Operation\MatchFactoryDA.cs" />
+    <Compile Include="Services\Management\PersonServices.cs" />
+    <Compile Include="Services\Management\PortServices.cs" />
+    <Compile Include="Services\Management\ProjectTypeServices.cs" />
+    <Compile Include="Services\Management\ReasonAvailabilityServices.cs" />
+    <Compile Include="Services\Management\RegionServices.cs" />
+    <Compile Include="Services\Management\VesselAvailabilityServices.cs" />
+    <Compile Include="Services\Management\VesselTypeServices.cs" />
+    <Compile Include="Services\Operation\CabinSpecificationServices.cs" />
+    <Compile Include="Services\Operation\MatchServices.cs" />
+    <Compile Include="Services\Operation\MessageServices.cs" />
+    <Compile Include="Services\Operation\OfferServices.cs" />
+    <Compile Include="Services\Operation\ProjectServices.cs" />
+    <Compile Include="Services\Operation\SpecificInformationServices.cs" />
+    <Compile Include="Services\Operation\VesselServices.cs" />
+    <Compile Include="Services\Reports\ReportServices.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DA\EGulfModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EGulfModel.edmx</DependentUpon>
+      <LastGenOutput>EGulfModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DA\EGulfModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EGulfModel.edmx</DependentUpon>
+      <LastGenOutput>EGulfModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="DA\EGulfModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EGulfModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DA\EGulfModel.edmx.diagram">
+      <DependentUpon>EGulfModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Security\Security.csproj">
+      <Project>{3279CFDA-572C-489A-A192-8DA1E3FD7C12}</Project>
+      <Name>Security</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

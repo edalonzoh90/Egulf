@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Map/index.cshtml";
+}
+<link href="~/Content/plugins/sidebar/css/leaflet-sidebar.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/plugins/leaflet-clusters/MarkerCluster.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/plugins/leaflet-clusters/MarkerCluster.Default.css" rel="stylesheet" type="text/css" />
+<div id="sidebar" class="leaflet-sidebar collapsed">
+    <!-- nav tabs -->
+    <div class="leaflet-sidebar-tabs">
+        <!-- top aligned tabs -->
+        <ul role="tablist">
+            <li><a href="#home" role="tab"><i class="fa fa-search"></i></a></li>
+            <li id="lioffer" class="active"><a href="#autopan" role="tab"><i class="fa ion-arrow-swap "></i></a></li>
+            <li id="liships"><a href="#asign" role="tab" id="aships" nn<><i class="fa fa-ship"></i></a></li>
+            <li id="lichat" class="disabled"><a id="achat" href="#chat" role="tab"><i class="fa fa-comments"></i></a></li>
+        </ul>
+    </div>
+
+    <!-- panel content -->
+    <div class="leaflet-sidebar-content">
+        <div class="leaflet-sidebar-pane" id="home">
+            <h1 class="leaflet-sidebar-header">
+                Búsqueda
+                <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+            </h1>
+
+            @Html.Partial("_SearchMatchProject")
+        </div>
+
+        <div class="leaflet-sidebar-pane" id="autopan">
+            <h1 class="leaflet-sidebar-header">
+                Ofertas y Propuestas
+                <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+            </h1>
+            @Html.Partial("_OfferMatchProject")
+        </div>
+
+        <div class="leaflet-sidebar-pane" id="asign">
+            <h1 class="leaflet-sidebar-header">
+                Asignar
+                <span class="leaflet-sidebar-close"><i class="fa  fa-caret-left"></i></span>
+            </h1>
+            @Html.Partial("_VesselAssignMatch")
+        </div>
+
+        <div class="leaflet-sidebar-pane" id="chat">
+            <h1 class="leaflet-sidebar-header">
+                Chat
+                <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+            </h1>
+            <div id="mchat"></div>
+        </div>
+
+        <div class="leaflet-sidebar-pane" id="messages">
+            <h1 class="leaflet-sidebar-header">Messages<span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+        </div>
+    </div>
+</div>
+
+<script src="~/Content/plugins/sidebar/js/leaflet-sidebar.js"></script>
+<script src="~/Content/plugins/leaflet-clusters/leaflet.markercluster.js"></script>
+<script src="~/Scripts/Views/MapEgulf.js"></script>
+<script src="~/Scripts/Views/MatchV2.js"></script>
+<script src="~/Scripts/jquery.sticky-kit.min.js"></script>
+
+
+<script>
+$(document).ready(function () {
+    Base.call(Match);
+    Match.Init();
+    Match.vars.currentPersonId = '@ViewBag.currentPersonId';
+});
+</script>

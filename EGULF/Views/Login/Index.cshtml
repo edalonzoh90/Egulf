@@ -1,0 +1,143 @@
+﻿@using localResources = EGULF.App_LocalResources.Login
+@using supportLanguageUI = EGULF.App_LocalResources.Support
+@using messageLanguageUI = EGULF.App_LocalResources.MessageUI
+@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+<script>
+    var urlLogin = '@Url.Content("~/Login/")';
+    var urlSupport = '@Url.Content("~/Support/")';
+    var urlHome = '@Url.Content("~/Match/")';
+    var tags = {
+        "ValLogin1": '@localResources.ValLogin1',
+        "ValLogin2": '@localResources.ValLogin2',
+        "ValLogin3": '@localResources.ValLogin3',
+    };
+</script>
+
+
+<div class="text-center">
+    <a href="@Url.Action("Index", "Login")" class="logo-lg">
+        <img src="~/Content/Images/Isotipo2.png" width="20%"><span style="font-family: 'Questrial', sans-serif;"> E-Gulf</span>
+    </a>
+</div>
+
+<form class="form-horizontal m-t-20" form-material" id="LoginForm">
+
+        <div class="form-group row text-center">
+            <div class="col-12">
+                <span id="lblError" style="color:#e86d6d; font-weight:bold; font-size: large" class="hidden"> </span>
+            </div>
+        </div>
+    <div class="form-group row">
+        <div class="col-12">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="mdi mdi-account"></i></span>
+                <input id="UserName" name="UserName" class="form-control Login" type="text" required="" placeholder="@localResources.Username">
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-12">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="mdi mdi-radar"></i></span>
+                <input id="Password" name="Password" class="form-control Login" type="password" required="" placeholder="@localResources.Password">
+            </div>
+        </div>
+    </div>
+    @*<div class="form-group row">
+        <div class="col-12">
+            <div class="checkbox checkbox-primary">
+                <input id="checkbox-signup" type="checkbox">
+                <label for="checkbox-signup">
+                    Remember me
+                </label>
+            </div>
+
+        </div>
+    </div>*@
+    <div class="form-group text-right m-t-20">
+        <div class="col-xs-12">
+            <button id="btnLogin" class="btn btn-primary btn-custom w-md waves-effect waves-light Login" type="button">@localResources.LoginTag</button>
+        </div>
+    </div>
+    <div class="form-group row m-t-30">
+        <div class="col-sm-12 text-center">
+            <p class="text-white  m-b-5">@localResources.NotRegisteredYet <a id="SignUp" href=@Url.Action("Index", "SingUp") class="text-primary m-l-5"><b>@localResources.SignUp</b></a></p>
+        </div>
+        <div class="col-sm-12 col-md-12 text-center m-b-5">
+            <a href="javascript:login.Recover();" class="text-white">
+                <i class="fa fa-lock m-r-5"></i> @localResources.ForgotPassword
+            </a>
+        </div>
+        <div class="col-sm-12 col-md-12 text-center m-b-5">
+            <a href="" class="text-white" data-toggle="modal" data-target="#help-modal">
+                <i class="mdi mdi-help-circle-outline"></i> @localResources.NeedHelp
+            </a>
+        </div>      
+    </div>
+</form>
+
+
+
+<form class="form-horizontal m-t-20" form-material" id="RecoverAccountForm" style="display:none;">
+    <div class="alert alert-primary alert-dismissable">
+        @*<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>*@
+        @localResources.ResetInfo
+    </div>
+    <div class="form-group row">
+        <div class="col-12">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="mdi mdi-at"></i></span>
+                <input id="Email" name="Email" type="email" class="form-control RecoverAccount" required="" placeholder="@localResources.Email" data-error="@localResources.MsgWrongEmailFormat">             
+            </div>
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
+
+    <div class="form-group text-right m-t-20">
+        <div class="col-xs-12 col-md-12">
+            <button id="btnCancel" onclick="javascript: login.CancelRecover();" class="btn btn-defult btn-custom w-md waves-effect waves-light RecoverAccount" type="button">@localResources.Cancel</button>
+            <button id="btnReset" class="btn btn-primary btn-custom w-md waves-effect waves-light RecoverAccount" type="button">@localResources.Reset</button>
+        </div>
+    </div>
+</form>
+
+
+<div id="help-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="form-horizontal" id="HelpForm">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">@supportLanguageUI.HelpTitle</h4>
+                </div>
+                <div class="modal-body">
+                    <p>@supportLanguageUI.HelpInfo</p>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="helpEmail" class="control-label">@supportLanguageUI.HelpEmail</label>
+                                <input type="email" name="helpEmail" id="helpEmail" required="required" class="form-control Help"  data-error="@localResources.MsgWrongEmailFormat">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="helpMessage" class="control-label">@supportLanguageUI.HelpMessage</label>
+                                <textarea id="helpMessage" name="helpMessage" class="form-control Help" required="required" rows="7" style="height:auto;"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    @*<button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">@messageLanguageUI.ButtonTextCancel</button>*@
+                    <button id="btnHelp" type="button" class="btn btn-primary waves-effect waves-light Help">@messageLanguageUI.ButtonTextSend</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

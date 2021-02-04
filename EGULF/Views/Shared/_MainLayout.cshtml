@@ -1,0 +1,255 @@
+﻿@using EGULF.Helpers
+@using messagesUI = EGULF.App_LocalResources.MessageUI;
+@using supportLanguageUI = EGULF.App_LocalResources.Support
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Zilla+Slab:600" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="public" />
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="EGulf">
+    <meta name="author" content="">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="~/Content/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/Content/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/Content/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/Content/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/Content/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/Content/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/Content/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/Content/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/Content/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/Content/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/Content/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/Content/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Content/favicon/favicon-16x16.png">
+    <link rel="manifest" href="~/Content/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="f~/Content/avicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>E-Gulf</title>
+
+    <link rel="stylesheet" href="~/Content/plugins/jquery.steps/css/jquery.steps.css" />
+    <link href="~/Content/plugins/switchery/switchery.min.css" rel="stylesheet" />
+    <link href="~/Content/plugins/jquery-circliful/css/jquery.circliful.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/plugins/bootstrap-sweetalert/sweet-alert.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/Content/plugins/morris/morris.css">
+    <link href="~/Content/Minton/assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
+    <link href="~/Content/plugins/multiselect/css/multi-select.css" rel="stylesheet" />
+    <link href="~/Content/plugins/select2/select2.css" rel="stylesheet" />
+    <link href="~/Content/Minton/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/Minton/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
+    <link href="~/Content/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="~/Content/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <!-- DataTables -->
+    <link href="~/Content/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <!-- Responsive datatable examples -->
+    <link href="~/Content/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Content/Minton/assets/js/modernizr.min.js"></script>
+    <!-- Plugins  -->
+    <script src="~/Content/Minton/assets/js/jquery.min.js"></script>
+    <script src="~/Content/plugins/jquery-ui/jquery-ui.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.4.0.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/signalr/hubs")"></script>
+    <script src="~/Content/Minton/assets/js/popper.min.js"></script>
+    <script src="~/Content/Minton/assets/js/bootstrap.min.js"></script>
+    <script src="~/Content/Minton/assets/js/detect.js"></script>
+    <script src="~/Content/Minton/assets/js/fastclick.js"></script>
+    <script src="~/Content/Minton/assets/js/jquery.slimscroll.js"></script>
+    <script src="~/Content/Minton/assets/js/jquery.blockUI.js"></script>
+    <script src="~/Content/Minton/assets/js/waves.js"></script>
+    <script src="~/Content/Minton/assets/js/wow.min.js"></script>
+    <script src="~/Content/Minton/assets/js/jquery.nicescroll.js"></script>
+    <script src="~/Content/Minton/assets/js/jquery.scrollTo.min.js"></script>
+    <script src="~/Content/plugins/jquery.steps/js/jquery.steps.min.js"></script>
+    <script src="~/Content/plugins/switchery/switchery.min.js"></script>
+    <script src="~/Content/plugins/bootstrap-sweetalert/sweet-alert.js"></script>
+
+    <script type="text/javascript" src="~/Content/plugins/multiselect/js/jquery.multi-select.js"></script>
+
+    <!-- Counter Up  -->
+    <script src="~/Content/plugins/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="~/Content/plugins/counterup/jquery.counterup.min.js"></script>
+    <!-- circliful Chart -->
+    <script src="~/Content/plugins/jquery-circliful/js/jquery.circliful.min.js"></script>
+    <script src="~/Content/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <!-- skycons -->
+    <script src="~/Content/plugins/skyicons/skycons.min.js" type="text/javascript"></script>
+    <!-- Notification js -->
+    <script src="~/Content/plugins/notifyjs/dist/notify.min.js"></script>
+    <script src="~/Content/plugins/notifications/notify-metro.js"></script>
+    <!-- Required datatable js -->
+    <script src="~/Content/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Content/plugins/datatables/dataTables.bootstrap4.min.js"></script>
+    <!-- Buttons examples -->
+    <script src="~/Content/plugins/datatables/dataTables.buttons.min.js"></script>
+    <script src="~/Content/plugins/datatables/buttons.bootstrap4.min.js"></script>
+    @*<script src="~/Content/plugins/datatables/jszip.min.js"></script>
+        <script src="~/Content/plugins/datatables/pdfmake.min.js"></script>*@
+    @*<script src="~/Content/plugins/datatables/vfs_fonts.js"></script>
+        <script src="~/Content/plugins/datatables/buttons.html5.min.js"></script>
+        <script src="~/Content/plugins/datatables/buttons.print.min.js"></script>
+        <script src="~/Content/plugins/datatables/buttons.colVis.min.js"></script>*@
+    <!-- Responsive examples -->
+    <script src="~/Content/plugins/datatables/dataTables.responsive.min.js"></script>
+    <script src="~/Content/plugins/datatables/responsive.bootstrap4.min.js"></script>
+    <script src="~/Content/plugins/bootstrap-validator/validator.js"></script>
+    <!-- Required datatable js -->
+    @*<script src="~/Content/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="~/Content/plugins/datatables/dataTables.bootstrap4.min.js"></script>*@
+    <script src="~/Content/plugins/datatables/dataTables.select.min.js"></script>
+    <!-- Buttons examples -->
+    @*<script src="~/Content/plugins/datatables/dataTables.buttons.min.js"></script>
+        <script src="~/Content/plugins/datatables/buttons.bootstrap4.min.js"></script>*@
+    @*<script src="~/Content/plugins/datatables/jszip.min.js"></script>
+        <script src="~/Content/plugins/datatables/pdfmake.min.js"></script>*@
+    <script src="~/Content/plugins/datatables/vfs_fonts.js"></script>
+    <script src="~/Content/plugins/datatables/buttons.html5.min.js"></script>
+    <script src="~/Content/plugins/datatables/buttons.print.min.js"></script>
+    <script src="~/Content/plugins/datatables/buttons.colVis.min.js"></script>
+    <script src="~/Content/plugins/select2/select2.min.js"></script>
+    <script src="~/Content/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+    <!-- Responsive examples -->
+    @*<script src="~/Content/plugins/datatables/dataTables.responsive.min.js"></script>*@
+    @*<script src="~/Content/plugins/datatables/responsive.bootstrap4.min.js"></script>*@
+    <!--Validator-->
+    @*<script src="~/Content/plugins/bootstrap-validator/validator.js"></script>*@
+    <!--Moment-->
+    <script src="~/Content/plugins/moment/min/moment.min.js"></script>
+    <script src="~/Content/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/Content/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- Parsleyjs -->
+    <script type="text/javascript" src="~/Content/plugins/parsleyjs/dist/parsley.min.js"></script>
+    <!-- Security Encrypth-->
+    <script src="~/Scripts/Security/aes.js"></script>
+    <script src="~/Scripts/Security/Crypto.js"></script>
+
+</head>
+
+<body class="fixed-left widescreen fixed-left-void">
+
+    <!-- Preloader -->
+    @*<div class="preloader">
+            <div class="cssload-speeding-wheel"></div>
+        </div>*@
+    <!--End Preloader-->
+    <!--Wrapper-->
+    <div id="wrapper" class="enlarged forced">
+        <!-- Top Bar Start -->
+        <div class="topbar">
+
+            <!-- LOGO -->
+            <div class="topbar-left">
+                <div class="text-center">
+                    <a href="/match" class="logo"><img src="~/Content/Images/Isotipo2.png" width="35" alt="Alternate Text" /><span style="font-family: 'Zilla Slab', serif; padding-left:13px">E-Gulf</span></a>
+                </div>
+            </div>
+            <!-- Session Menu -->
+            @Html.Partial("_SessionMenuLayout")
+            <!--End Session Menu-->
+        </div>
+        <!-- Top Bar End -->
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left side-menu">
+            <div class="sidebar-inner slimscrollleft" style="">
+                <!--- Divider -->
+                <div id="sidebar-menu">
+                    <ul>
+                        @MvcHtmlString.Create(@Html.Action("Menu", "Login", new { Area = string.Empty }).ToString());
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- Left Sidebar End -->
+        <!--Content Area-->
+        <div class="content-page full-height">
+            <div class="content full-height">
+                <!--Content-->
+                <div class="container-fluid full-height">
+                    @*with-loader sk-loading*@
+                    @*<div class="sk-spinner">
+                            <div class="double-bounce1"></div>
+                            <div class="double-bounce2"></div>
+                        </div>*@
+                    @RenderBody()
+                </div>
+                <!--End Content-->
+            </div>
+            <!--Footer Area-->
+            @Html.Partial("_FooterLayout")
+            <!--End Footer Area-->
+
+        </div>
+        <!--End Content Area-->
+        <!--Hidden SideBar-->
+        @Html.Partial("_HiddenSideBarLayout")
+        <!--End Hidden SideBar-->
+    </div>
+    <!--End Wrapper-->
+    <!--Loader-->
+    <div id="EgulfLoader" style="display:none;">
+        <img src="@Url.Content("~/Content/Images/EgulfLoader.gif")" alt="@messagesUI.TextLoading" height="175" width="auto" />
+    </div>
+    <!--End Loader-->
+
+
+    <!--Modal Support-->
+    <div id="help-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;z-index:10000 !important;" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form class="form-horizontal" id="HelpForm">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">@supportLanguageUI.HelpTitle</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>@supportLanguageUI.HelpInfoSession</p>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="helpMessage" class="control-label">@supportLanguageUI.HelpMessage</label>
+                                    <textarea id="helpMessage" name="helpMessage" class="form-control Help" required="required" rows="7" style="height:auto;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnHelp" type="button" class="btn btn-primary waves-effect waves-light Help">@messagesUI.ButtonTextSend</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--End Modal Support-->
+
+    <script>
+        Window.Key = '@SessionWeb.Key';
+        Window.Iv = '@SessionWeb.Iv';
+
+        var resizefunc = [];
+        var timeout = (@HttpContext.Current.Session.Timeout * 60 * 1000) + 3000;
+    </script>
+    <!-- Page js  -->
+    <script src="~/Content/Minton/assets/pages/jquery.dashboard.js"></script>
+    <script src="~/Scripts/Views/Base.js"></script>
+    <script src="~/Scripts/Views/MainLayout.js"></script>
+    <!-- Custom main Js -->
+    <script src="~/Content/Minton/assets/js/jquery.core.js"></script>
+    <script src="~/Content/Minton/assets/js/jquery.app.js"></script>
+</body>
+</html>
+
+
+

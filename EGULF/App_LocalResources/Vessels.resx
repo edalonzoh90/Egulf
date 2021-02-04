@@ -1,0 +1,463 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AirCondition" xml:space="preserve">
+    <value>Aire acondicionado</value>
+  </data>
+  <data name="BallastWaterCapacity" xml:space="preserve">
+    <value>Capacidad de agua de lastre</value>
+  </data>
+  <data name="BeamOverall" xml:space="preserve">
+    <value>Manga total</value>
+  </data>
+  <data name="BeamOverallDescription" xml:space="preserve">
+    <value>Es el ancho máximo del buque medido desde la superficie exterior del casco.</value>
+  </data>
+  <data name="BHP" xml:space="preserve">
+    <value>BHP</value>
+  </data>
+  <data name="BHPDescription" xml:space="preserve">
+    <value>BHP</value>
+  </data>
+  <data name="BollardPull" xml:space="preserve">
+    <value>Tiron a punto fijo</value>
+  </data>
+  <data name="BollardPullAhead" xml:space="preserve">
+    <value>Tiron a punto fijo (proa)</value>
+  </data>
+  <data name="BollardPullAheadDescription" xml:space="preserve">
+    <value>Es la medida de la cantidad de fuerza que un remolcador es capaz de aplicar en un trabajo de remolque.</value>
+  </data>
+  <data name="BollardPullAstern" xml:space="preserve">
+    <value>Tiron a popa</value>
+  </data>
+  <data name="BollardPullAsternDescription" xml:space="preserve">
+    <value>Es la medida de la cantidad de fuerza que un remolcador es capaz de aplicar en un trabajo de remolque.</value>
+  </data>
+  <data name="BollardPullDescription" xml:space="preserve">
+    <value>Es la medida de la cantidad de fuerza que un remolcador es capaz de aplicar en un trabajo de remolque.</value>
+  </data>
+  <data name="CargoCapacity" xml:space="preserve">
+    <value>Capacidad de carga en cubierta</value>
+  </data>
+  <data name="CementTanksCapacity" xml:space="preserve">
+    <value>Capacidad de Silos (carga a granel)</value>
+  </data>
+  <data name="Class" xml:space="preserve">
+    <value>Clase</value>
+  </data>
+  <data name="ClassDescription" xml:space="preserve">
+    <value>Sociedad clasificadora del barco</value>
+  </data>
+  <data name="ClassNotation" xml:space="preserve">
+    <value>Notación de la clase</value>
+  </data>
+  <data name="ClassNotationDescription" xml:space="preserve">
+    <value>Especificaciones de clase</value>
+  </data>
+  <data name="ClassValidity" xml:space="preserve">
+    <value>Validez de clase</value>
+  </data>
+  <data name="ClassValidityDescription" xml:space="preserve">
+    <value>Fecha de expiración del certificado de clase</value>
+  </data>
+  <data name="ConferenceRoom" xml:space="preserve">
+    <value>Sala de juntas</value>
+  </data>
+  <data name="ControlRoom" xml:space="preserve">
+    <value>Cuarto de control</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Bandera</value>
+  </data>
+  <data name="CountryDescription" xml:space="preserve">
+    <value>País de registro del barco</value>
+  </data>
+  <data name="CruisingSpeed" xml:space="preserve">
+    <value>Velocidad económica</value>
+  </data>
+  <data name="DeckStrenght" xml:space="preserve">
+    <value>Resistencia de cubierta</value>
+  </data>
+  <data name="DeckStrenghtDescription" xml:space="preserve">
+    <value>Capacidad en toneladas por metro cuadrado de la cubierta</value>
+  </data>
+  <data name="DischargeRate" xml:space="preserve">
+    <value>DischargeRate</value>
+  </data>
+  <data name="DischargeRateDescription" xml:space="preserve">
+    <value>DischargeRate</value>
+  </data>
+  <data name="DistanceCruisingSpeed" xml:space="preserve">
+    <value>Autonomía en velocidad económica</value>
+  </data>
+  <data name="DistanceMaxSpeed" xml:space="preserve">
+    <value>Autonomía en velocidad máxima</value>
+  </data>
+  <data name="DynamicPositionSystem" xml:space="preserve">
+    <value>Sistema de posicionamiento dinámico</value>
+  </data>
+  <data name="FreeDeckArea" xml:space="preserve">
+    <value>Área libre de cubierta</value>
+  </data>
+  <data name="FreeDeckAreaDescription" xml:space="preserve">
+    <value>Area de cubierta en metros cuadrados.</value>
+  </data>
+  <data name="FreshWaterCapacity" xml:space="preserve">
+    <value>Capacidad de agua potable</value>
+  </data>
+  <data name="FuelConsumptionCruisingSpeed" xml:space="preserve">
+    <value>Consumo diario de combustible en velocidad económica</value>
+  </data>
+  <data name="FuelConsumptionCruisingSpeedDescription" xml:space="preserve">
+    <value>Consumo de combustible, en metros cubicos, en velocidad económica</value>
+  </data>
+  <data name="FuelConsumptionMaxSpeed" xml:space="preserve">
+    <value>Consumo diario de combustible en velocidad máxima</value>
+  </data>
+  <data name="FuelConsumptionMaxSpeedDescription" xml:space="preserve">
+    <value>Consumo de combustible, en metros cubicos, en velocidad máxima</value>
+  </data>
+  <data name="FuelOilCapacity" xml:space="preserve">
+    <value>Capacidad de combustible</value>
+  </data>
+  <data name="GeneralInfo" xml:space="preserve">
+    <value>Información general</value>
+  </data>
+  <data name="GrossTonnage" xml:space="preserve">
+    <value>Tonelaje bruto</value>
+  </data>
+  <data name="GrossTonnageDescription" xml:space="preserve">
+    <value>Es el volumen del buque entre el plan y la cubierta alta con todos los espacios cerrados.</value>
+  </data>
+  <data name="Gym" xml:space="preserve">
+    <value>Gimnasio</value>
+  </data>
+  <data name="Hospital" xml:space="preserve">
+    <value>Hospital</value>
+  </data>
+  <data name="HotWaterCalorifier" xml:space="preserve">
+    <value>Calentador de agua</value>
+  </data>
+  <data name="Imo" xml:space="preserve">
+    <value>IMO </value>
+  </data>
+  <data name="InvalidIMO" xml:space="preserve">
+    <value>Ingrese un número de siete dígitos</value>
+  </data>
+  <data name="LengthOverall" xml:space="preserve">
+    <value>Eslora total</value>
+  </data>
+  <data name="LengthOverallDescription" xml:space="preserve">
+    <value>Es la distancia comprendida entre las perpendiculares de los puntos más salientes del buque en al plano longitudinal.
+</value>
+  </data>
+  <data name="MaximumLoadedDraft" xml:space="preserve">
+    <value>Calado a carga máxima</value>
+  </data>
+  <data name="MaximumLoadedDraftDescription" xml:space="preserve">
+    <value>Es la distancia vertical medida desde el plano que pasa por la parte más baja de la quilla hasta la línea de agua a la que está flotando el buque.</value>
+  </data>
+  <data name="MaximumSpeed" xml:space="preserve">
+    <value>Velocidad máxima</value>
+  </data>
+  <data name="MessRoom" xml:space="preserve">
+    <value>Comedor</value>
+  </data>
+  <data name="MudCapacity" xml:space="preserve">
+    <value>Capacidad de tanques de lodo</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="NetTonnage" xml:space="preserve">
+    <value>Tonelaje neto</value>
+  </data>
+  <data name="NetTonnageDescription" xml:space="preserve">
+    <value>Es el volumen - en toneladas de arqueo - de los espacios destinados al cargamento.</value>
+  </data>
+  <data name="NewVessel" xml:space="preserve">
+    <value>Nuevo</value>
+  </data>
+  <data name="NumberPassenger" xml:space="preserve">
+    <value>Número de pasajeros</value>
+  </data>
+  <data name="Office" xml:space="preserve">
+    <value>Oficina</value>
+  </data>
+  <data name="OilRecoveryCapacity" xml:space="preserve">
+    <value>Capacidad de recuperación de hidrocarburos</value>
+  </data>
+  <data name="Pool" xml:space="preserve">
+    <value>Piscina</value>
+  </data>
+  <data name="PoolDescription" xml:space="preserve">
+    <value>Pool</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>Puerto </value>
+  </data>
+  <data name="PortDescription" xml:space="preserve">
+    <value>Puerto base</value>
+  </data>
+  <data name="PumpRates" xml:space="preserve">
+    <value>Capacidad de Bombeo</value>
+  </data>
+  <data name="RegisterVessel" xml:space="preserve">
+    <value>Registrar barco</value>
+  </data>
+  <data name="RepeatedIMO" xml:space="preserve">
+    <value>IMO no disponible</value>
+  </data>
+  <data name="RepeatedName" xml:space="preserve">
+    <value>Nombre no disponible</value>
+  </data>
+  <data name="SewageTreatmentPlant" xml:space="preserve">
+    <value>Planta de tratamiento de aguas negras</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Estatus</value>
+  </data>
+  <data name="SubtypeId" xml:space="preserve">
+    <value>Subcategoría</value>
+  </data>
+  <data name="Suitability" xml:space="preserve">
+    <value>Adecuabilidad</value>
+  </data>
+  <data name="SuitabilityDescription" xml:space="preserve">
+    <value>Tipos de servicios que el barco puede ejecutar</value>
+  </data>
+  <data name="Vessel" xml:space="preserve">
+    <value>Barco</value>
+  </data>
+  <data name="VesselType" xml:space="preserve">
+    <value>Tipo barco</value>
+  </data>
+  <data name="VesselTypeDescription" xml:space="preserve">
+    <value>Tipo de barco</value>
+  </data>
+  <data name="WaterMarkerPlant" xml:space="preserve">
+    <value>Planta potabilizadora</value>
+  </data>
+  <data name="YearBuild" xml:space="preserve">
+    <value>Año de construcción</value>
+  </data>
+  <data name="YearBuildDescription" xml:space="preserve">
+    <value>Año de construcción del barco</value>
+  </data>
+  <data name="Amenities" xml:space="preserve">
+    <value>Amenidades</value>
+  </data>
+  <data name="Availability" xml:space="preserve">
+    <value>Disponibilidad</value>
+  </data>
+  <data name="CabinsSpecification" xml:space="preserve">
+    <value>Especificación de cabinas</value>
+  </data>
+  <data name="Cuadruple" xml:space="preserve">
+    <value>Cuadruple</value>
+  </data>
+  <data name="DailyRate" xml:space="preserve">
+    <value>Costos</value>
+  </data>
+  <data name="Double" xml:space="preserve">
+    <value>Doble</value>
+  </data>
+  <data name="ExtraInfo" xml:space="preserve">
+    <value>Información adicional</value>
+  </data>
+  <data name="MaterialTransportation" xml:space="preserve">
+    <value>Transportación de material</value>
+  </data>
+  <data name="PersonnelTransportation" xml:space="preserve">
+    <value>Transporte de personal o flotel</value>
+  </data>
+  <data name="Simple" xml:space="preserve">
+    <value>Simple</value>
+  </data>
+  <data name="SpecificInfo" xml:space="preserve">
+    <value>Información específica</value>
+  </data>
+  <data name="Towage" xml:space="preserve">
+    <value>Remolque</value>
+  </data>
+  <data name="Triple" xml:space="preserve">
+    <value>Triple</value>
+  </data>
+  <data name="DailyRateFlotel" xml:space="preserve">
+    <value>Tarifa diaria flotel</value>
+  </data>
+  <data name="DailyRateMaterialTransportation" xml:space="preserve">
+    <value>Tarifa diaria transporte material</value>
+  </data>
+  <data name="DailyRatePersonnelTransportation" xml:space="preserve">
+    <value>Tarifa diaria transporte personal</value>
+  </data>
+  <data name="DailyRateTowing" xml:space="preserve">
+    <value>Tarifa diaria remolque</value>
+  </data>
+  <data name="LaundryCost" xml:space="preserve">
+    <value>Costo de lavandería</value>
+  </data>
+  <data name="LodgingCost" xml:space="preserve">
+    <value>Costo de acomodación</value>
+  </data>
+  <data name="MealCost" xml:space="preserve">
+    <value>Costo de alimentación</value>
+  </data>
+  <data name="NoExtraInfo" xml:space="preserve">
+    <value>Sin información adicional</value>
+  </data>
+  <data name="ErrorOnSave" xml:space="preserve">
+    <value>Ha ocurrido un error. </value>
+  </data>
+  <data name="ManageVessel" xml:space="preserve">
+    <value>Administrar</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>Fin</value>
+  </data>
+  <data name="Event" xml:space="preserve">
+    <value>Evento</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Inicio</value>
+  </data>
+  <data name="Events" xml:space="preserve">
+    <value>Eventos</value>
+  </data>
+  <data name="PemexCheckDescription" xml:space="preserve">
+    <value>El check-list de PEMEX es una inspección fisico-documental que se le realiza a cualquier embarcación para garantizar que cumpla con los parametros minimos de seguridad y así permitirle el acceso al area de plataformas</value>
+  </data>
+  <data name="PemexCheck" xml:space="preserve">
+    <value>Checklist de PEMEX</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Acción</value>
+  </data>
+  <data name="BadExtension" xml:space="preserve">
+    <value>Solo se permiten imágenes en formato (jpeg, jpg, png)</value>
+  </data>
+  <data name="Aditionals" xml:space="preserve">
+    <value>Adicionales</value>
+  </data>
+</root>

@@ -1,0 +1,140 @@
+﻿@model EGullf.Services.Models.Operation.ProjectModel
+
+@using projectLanguageUI = EGULF.App_LocalResources.Project
+@using messageLanguageUI = EGULF.App_LocalResources.MessageUI
+
+@Html.HiddenFor(m => m.ProjectId)
+<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label class="control-label" for="FreeDeckArea">@projectLanguageUI.LabelFreeDeckArea</label>
+    <div class="input-group">
+        @Html.TextBoxFor(m => m.FreeDeckArea, "{0:n2}", new
+   {
+       @class = "form-control",
+       @id = "FreeDeckArea",
+       @name = "FreeDeckArea",
+       @type = "number",
+       @value = "0",
+       @step = ".05",
+       @min = 1
+   })
+        <span class="input-group-addon bootstrap-touchspin-postfix">@projectLanguageUI.PlaceholderM2</span>
+        <button class="input-group-addon bg-primary text-white" data-content="@projectLanguageUI.TooltipSquareMeters" data-toggle="popover" data-placement="bottom" data-trigger="focus" role="button" type="button">
+            <i class="fa fa-info-circle"></i>
+        </button>
+    </div>
+</div>
+
+<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label class="control-label" for="MudCapacity">@projectLanguageUI.LabelMudCapacity</label>
+    <div class="input-group">
+        @Html.TextBoxFor(m => m.MudCapacity, "{0:n2}", new
+   {
+       @class = "form-control",
+       @id = "MudCapacity",
+       @name = "MudCapacity",
+       @type = "number",
+       @value = "0",
+       @step = ".05",
+       @min = 1
+   })
+        <span class="input-group-addon bootstrap-touchspin-postfix">@projectLanguageUI.PlaceholderM3</span>
+        <button class="input-group-addon bg-primary text-white" data-content="@projectLanguageUI.TooltipsCubicMeters" data-trigger="focus" role="button" type="button" data-toggle="popover" data-placement="bottom">
+            <i class="fa fa-info-circle"></i>
+        </button>
+    </div>
+</div>
+
+<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label class="control-label" for="CementTankCapacity">@projectLanguageUI.LabelCementTankCapacity</label>
+    <div class="input-group">
+        @Html.TextBoxFor(m => m.CementTankCapacity, "{0:n2}", new
+   {
+       @class = "form-control",
+       @id = "CementTankCapacity",
+       @name = "CementTankCapacity",
+       @type = "number",
+       @value = "0",
+       @step = ".05",
+       @min = 1
+   })
+        <span class="input-group-addon bootstrap-touchspin-postfix">@projectLanguageUI.PlaceholderM3</span>
+        <button class="input-group-addon bg-primary text-white" data-content="@projectLanguageUI.TooltipsCubicMeters" data-trigger="focus" role="button" type="button" data-toggle="popover" data-placement="bottom">
+            <i class="fa fa-info-circle"></i>
+        </button>
+    </div>
+</div>
+
+<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label class="control-label" for="OilRecoveryCapacity">@projectLanguageUI.LabelOilRecoveryCapacity</label>
+    <div class="input-group">
+        @Html.TextBoxFor(m => m.OilRecoveryCapacity, "{0:n2}", new
+   {
+       @class = "form-control",
+       @id = "OilRecoveryCapacity",
+       @name = "OilRecoveryCapacity",
+       @type = "number",
+       @value = "0",
+       @step = ".05",
+       @min = 1
+   })
+        <span class="input-group-addon bootstrap-touchspin-postfix">@projectLanguageUI.PlaceholderM3</span>
+        <button class="input-group-addon bg-primary text-white" data-content="@projectLanguageUI.TooltipsCubicMeters" data-trigger="focus" role="button" type="button" data-toggle="popover" data-placement="bottom">
+            <i class="fa fa-info-circle"></i>
+        </button>
+    </div>
+</div>
+
+<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label class="control-label" for="">@projectLanguageUI.LabelDynamicPositioningSystem</label>
+    <button class="btn-primary" data-content="@projectLanguageUI.TooltipDynamicPositioningSystem" data-trigger="focus" role="button" type="button" data-toggle="popover" data-placement="bottom">
+        <i class="fa fa-info-circle"></i>
+    </button>  
+    <div class="form-check">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <div class="radio radio-primary form-check-inline">
+                <input type="radio" class="form-control" id="DPSRequired" name="DPS" value="1" style="display:inline !important;width:auto !important;" />
+                <label for="DPSRequired">@projectLanguageUI.OptionRequired</label>
+            </div>
+            <div class="radio radio-primary form-check-inline">
+                <input type="radio" class="form-control" id="DPSNoRequired" name="DPS" value="0" style="display:inline !important;width:auto !important;" checked />
+                <label for="DPSNoRequired">@projectLanguageUI.OptionNoRequired</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-check" id="DPOptions" style="display:none;">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="radio radio-primary form-check-inline">
+                <input type="radio" class="form-control" id="DP1" name="DynamicPositionSystem" value="1" style="display:inline !important;width:auto !important;" checked />
+                <label for="DP1">@projectLanguageUI.OptionDP1</label>
+            </div>
+            <div class="radio radio-primary form-check-inline">
+                <input type="radio" class="form-control" id="DP2" name="DynamicPositionSystem" value="2" style="display:inline !important;width:auto !important;" />
+                <label for="DP2">@projectLanguageUI.OptionDP2</label>
+            </div>
+            <div class="radio radio-primary form-check-inline">
+                <input type="radio" class="form-control" id="DP3" name="DynamicPositionSystem" value="3" style="display:inline !important;width:auto !important;" />
+                <label for="DP3">@projectLanguageUI.OptionDP3</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label class="control-label" for="">@projectLanguageUI.LabelCheckPemex</label>
+    <button class="btn-primary" data-content="@projectLanguageUI.TooltipCheckPemex" data-trigger="focus" role="button" type="button" data-toggle="popover" data-placement="bottom">
+        <i class="fa fa-info-circle"></i>
+    </button>
+    <div class="form-check">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <div class="radio radio-primary form-check-inline">
+                <input type="radio" class="form-control" id="PemexCheckRequired" name="PemexCheck" value="1" style="display:inline !important;width:auto !important;" />
+                <label for="PemexCheckRequired">@projectLanguageUI.OptionRequired</label>
+            </div>
+            <div class="radio radio-primary form-check-inline">
+                <input type="radio" class="form-control" id="PemexCheckNoRequired" name="PemexCheck" value="0" style="display:inline !important;width:auto !important;" checked />
+                <label for="PemexCheckNoRequired">@projectLanguageUI.OptionNoRequired</label>
+            </div>
+        </div>
+    </div>
+</div>
